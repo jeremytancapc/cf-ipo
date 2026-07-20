@@ -10,7 +10,6 @@ const anchors = [
   { href: "/#proof", label: "Traction" },
   { href: "/#group", label: "The Group" },
   { href: "/#roadmap", label: "Roadmap" },
-  { href: "/#contact", label: "Contact" },
 ];
 
 /** Vertical position (px from viewport top) the theme/fade observers sample against. */
@@ -119,20 +118,20 @@ export function Nav() {
           </Link>
         )}
         <Link
-          href={onFinancials ? "/#contact" : "/financials"}
+          href="/#contact"
           className="ml-1 whitespace-nowrap rounded-full bg-teal px-4 py-1.5 text-[12.5px] font-bold text-navy-deep transition-colors hover:bg-teal-bright"
         >
-          {onFinancials ? "Contact us" : "The numbers"}
+          Contact Us
         </Link>
       </nav>
 
       {/* Mobile: compact pill on the right */}
       <div className="absolute right-5 top-4 md:hidden">
         <Link
-          href={onFinancials ? "/" : "/financials"}
+          href={onFinancials ? "/" : "/#contact"}
           className="pointer-events-auto inline-flex rounded-full bg-teal px-4 py-2.5 text-[12px] font-bold text-navy-deep shadow-[0_10px_30px_rgba(10,22,38,0.25)]"
         >
-          {onFinancials ? "← Story" : "The numbers"}
+          {onFinancials ? "← Story" : "Contact Us"}
         </Link>
       </div>
     </header>

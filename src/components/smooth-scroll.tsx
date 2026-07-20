@@ -32,7 +32,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       const target = document.querySelector<HTMLElement>(url.hash);
       if (!target) return;
       event.preventDefault();
-      lenis.scrollTo(target, { offset: -64 });
+      lenis.scrollTo(target, { offset: 0 });
     };
     document.addEventListener("click", onAnchorClick);
 
