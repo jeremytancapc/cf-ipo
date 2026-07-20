@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CF Money — Pre-IPO Mini-Site
 
-## Getting Started
+A scroll-driven presentation site for CF Money's 2027 SGX Catalist listing, under Capital C Corporation branding. Built with Next.js (App Router), Tailwind CSS v4, GSAP + Lenis for scroll effects, Recharts for charts, and Supabase as the live data source.
 
-First, run the development server:
+## Pages
+
+- `/` — the story: AI-native positioning, proactive lending, moat, traction, market, products, group structure, roadmap
+- `/financials` — the deep dive: projections to FY2031, comparables, sensitivity analysis, uses of proceeds
+
+## Run locally
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The site works out of the box with built-in fallback data (mirroring the deck). Charts go live once Supabase is connected.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Connect Supabase (live-editable charts)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a free project at [supabase.com](https://supabase.com).
+2. In the Supabase **SQL Editor**, paste and run the whole of [`supabase/seed.sql`](supabase/seed.sql). This creates all tables with public read-only access (RLS) and seeds every figure from the deck.
+3. Copy your project URL and anon key from **Project Settings → API** into `.env.local`:
 
-## Learn More
+```bash
+NEXT_PUBLIC_SUPABASE_URL=https://YOUR-PROJECT.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR-ANON-KEY
+```
 
-To learn more about Next.js, take a look at the following resources:
+4. Restart `npm run dev`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+From then on, edit any value in the Supabase **Table Editor** (it works like a spreadsheet) and the live site reflects it on the next page load — no redeploy needed.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Tables
 
-## Deploy on Vercel
+| Table | Drives |
+| --- | --- |
+| `stats` | All headline counters (TAM, loans disbursed, IPO market cap, …) |
+| `disbursements` | Annual loan disbursement bar chart |
+| `market_size` | Market opportunity curve |
+| `projections` | FY2024–2031 revenue / PBT chart + table |
+| `comparables` | Peer table + market-cap-vs-P/E scatter |
+| `sensitivity` | Sensitivity table + valuation ranges |
+| `roe_scenarios` | ROE scenario cards |
+| `proceeds` | Uses-of-proceeds donut |
+| `contact_requests` | Contact-form submissions (insert-only for visitors) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deploy to Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npx vercel
+```
+
+Add the two `NEXT_PUBLIC_SUPABASE_*` environment variables in the Vercel project settings (Production + Preview), then deploy. Because chart data is fetched client-side on each visit, DB edits appear on the live site without republishing.
+
+## Notes
+
+- The accredited-investor disclaimer splash shows once per browser (stored in `localStorage` under `cf-money-ai-ack`).
+- Animations respect `prefers-reduced-motion`; mobile gets a reduced but complete experience.
+- Typography: Manrope (variable, via Google Fonts) across display, body and labels.
+- The contact section submits to Supabase (`contact_requests`); without Supabase configured it falls back to directing visitors to ipo@capc.com.sg.

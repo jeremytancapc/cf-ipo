@@ -1,26 +1,213 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  /* Brand — Capital C Corporation */
+  --color-blue: #2d5384;
+  --color-blue-deep: #24446d;
+  --color-sky: #00acfc;
+  --color-teal: #06dec0;
+  --color-teal-bright: #2ff0d4;
+  --color-mist: #eef4f9;
+  --color-navy: #16283f;
+  --color-navy-deep: #0e1b2c;
+  --color-ink: #101d2c;
+  --color-ink-soft: #4a6076;
+  --color-line: #d9e4ed;
+  --color-line-dark: rgba(255, 255, 255, 0.14);
+  --color-white-soft: rgba(255, 255, 255, 0.68);
+
+  --font-sans: var(--font-manrope), "Helvetica Neue", sans-serif;
+  --font-display: var(--font-manrope), "Helvetica Neue", sans-serif;
+  --font-mono: var(--font-manrope), ui-monospace, monospace;
+
+  --text-hero: clamp(2.6rem, 7.8vw, 6.75rem);
+  --text-giant: clamp(4.5rem, 15vw, 15rem);
+  --text-h2: clamp(2.1rem, 4.8vw, 4.5rem);
+  --text-h3: clamp(1.4rem, 2.3vw, 2.1rem);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-blue);
+  color: white;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: var(--color-navy-deep);
+}
+
+/* ————— Typography helpers ————— */
+
+/* Small bold uppercase label */
+.eyebrow {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+/* Oversized light display type */
+.display {
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+}
+
+/* Accent word inside a headline: teal, slanted, underlined */
+.accent-word {
+  display: inline-block;
+  color: var(--color-teal);
+  transform: skewX(-8deg);
+  text-decoration: underline;
+  text-decoration-thickness: 0.035em;
+  text-underline-offset: 0.14em;
+}
+
+/* Variant for light sections */
+.accent-word--sky {
+  color: var(--color-sky);
+}
+
+/* Underlined uppercase corner link */
+.link-underline {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.45em;
+  border-bottom: 1px solid currentColor;
+  transition: opacity 0.3s ease;
+}
+
+.link-underline:hover {
+  opacity: 0.65;
+}
+
+/* ————— Pills ————— */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  border-radius: 9999px;
+  padding: 0.85rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s var(--ease-out-expo);
+}
+
+.pill:hover {
+  transform: translateY(-2px);
+}
+
+.pill--teal {
+  background: var(--color-teal);
+  color: var(--color-navy-deep);
+}
+
+.pill--teal:hover {
+  background: var(--color-teal-bright);
+}
+
+.pill--outline {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: white;
+}
+
+.pill--outline:hover {
+  border-color: white;
+}
+
+.pill--blue {
+  background: var(--color-blue);
+  color: white;
+}
+
+.pill--blue:hover {
+  background: var(--color-blue-deep);
+}
+
+/* ————— Space sections: deep navy radial ————— */
+.space-section {
+  background:
+    radial-gradient(120% 90% at 70% 10%, #21395a 0%, var(--color-navy) 45%, var(--color-navy-deep) 100%);
+}
+
+/* Variant that starts exactly at navy-deep so the hero sphere's dark disk
+   flows into it with no visible seam. */
+.space-section-flow {
+  background: linear-gradient(
+    180deg,
+    var(--color-navy-deep) 0%,
+    var(--color-navy) 55%,
+    var(--color-navy-deep) 100%
+  );
+}
+
+/* Hairline rules */
+.rule {
+  height: 1px;
+  background: var(--color-line);
+}
+
+.dark-section .rule {
+  background: var(--color-line-dark);
+}
+
+/* Underline-style form inputs */
+.input-underline {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.7rem 0;
+  font-size: 1rem;
+  color: white;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+}
+
+.input-underline::placeholder {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.input-underline:focus {
+  border-color: var(--color-teal);
+}
+
+/* Recharts base overrides */
+.recharts-text {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none;
 }
