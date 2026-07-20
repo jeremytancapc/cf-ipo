@@ -86,6 +86,12 @@ body {
   color: var(--color-sky);
 }
 
+/* Variant for use on bright/teal fills, where the default teal accent
+   would blend into the background instead of standing out. */
+.accent-word--ink {
+  color: var(--color-navy-deep);
+}
+
 /* Underlined uppercase corner link */
 .link-underline {
   font-weight: 700;
