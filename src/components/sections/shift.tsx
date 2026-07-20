@@ -101,10 +101,12 @@ export function Shift() {
           {/* Ambient glow: anchored on Gen 3 below, but tall and strong
               enough to bleed up behind the legacy cards too, so the whole
               stack reads as building toward it. Sits at z-0, under both the
-              legacy cards and the Gen 3 card, both promoted to z-10. */}
+              legacy cards and the Gen 3 card, both promoted to z-10. Kept
+              clear of the heading above (mt-16/mt-24 on the grid) so the
+              blur doesn't bloom through the title text. */}
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-x-6 -top-16 bottom-0 z-0 rounded-[3rem] bg-white/45 blur-[110px] md:inset-x-16 md:-top-24"
+            className="pointer-events-none absolute inset-x-6 -top-6 bottom-0 z-0 rounded-[3rem] bg-white/45 blur-[90px] md:inset-x-16 md:-top-10"
           />
 
           <div className="relative z-10 mt-16 grid gap-5 md:mt-24 md:grid-cols-2">

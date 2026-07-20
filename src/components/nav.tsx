@@ -62,7 +62,7 @@ export function Nav() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="flex items-start justify-between px-5 pt-4 md:px-8">
+      <div className="flex items-center justify-between px-5 py-4 md:px-8">
         <Link
           href="/"
           aria-label="Capital C Corporation"
@@ -85,7 +85,7 @@ export function Nav() {
       </div>
 
       <nav
-        className={`pointer-events-auto absolute left-1/2 top-5 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border p-1 backdrop-blur-xl backdrop-saturate-150 transition-colors duration-500 md:flex ${
+        className={`pointer-events-auto absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-0.5 rounded-full border p-1 backdrop-blur-xl backdrop-saturate-150 transition-colors duration-500 md:flex ${
           theme === "dark"
             ? "border-white/12 bg-white/10 shadow-[0_8px_32px_rgba(10,22,38,0.25)]"
             : "border-ink/8 bg-white/65 shadow-[0_8px_32px_rgba(10,22,38,0.1)]"
@@ -126,7 +126,7 @@ export function Nav() {
       </nav>
 
       {/* Mobile: compact pill on the right */}
-      <div className="absolute right-5 top-4 md:hidden">
+      <div className="absolute right-5 top-1/2 -translate-y-1/2 md:hidden">
         <Link
           href={onFinancials ? "/" : "/#contact"}
           className="pointer-events-auto inline-flex rounded-full bg-teal px-4 py-2.5 text-[12px] font-bold text-navy-deep shadow-[0_10px_30px_rgba(10,22,38,0.25)]"
