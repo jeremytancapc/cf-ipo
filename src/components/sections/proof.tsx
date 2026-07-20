@@ -62,9 +62,9 @@ export function Proof() {
           {headline.map((s) => (
             <div
               key={s.key}
-              className="rounded-[1.75rem] border border-white/10 bg-white/4 px-6 py-8 backdrop-blur-sm"
+              className="min-w-0 rounded-[1.75rem] border border-white/10 bg-white/4 px-4 py-6 backdrop-blur-sm md:px-6 md:py-8"
             >
-              <div className="display text-[clamp(1.9rem,3.6vw,3.2rem)] leading-none text-white">
+              <div className="display whitespace-nowrap text-[clamp(1.15rem,6.4vw,2.1rem)] leading-none text-white md:text-[clamp(1.9rem,3.6vw,3.2rem)]">
                 <Counter
                   value={s.value}
                   prefix={s.prefix ?? ""}

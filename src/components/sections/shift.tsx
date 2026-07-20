@@ -20,7 +20,7 @@ const generations = [
     n: "Gen 2",
     name: "The web form",
     era: "Current industry",
-    body: "Apply online, upload documents, and wait hours — or days.",
+    body: "Apply online, upload documents, and wait hours, or days.",
   },
 ];
 
@@ -31,7 +31,7 @@ const genThree = [
   "Funds arrive in minutes, not days",
 ];
 
-/** Three generations of lending — CF Money framed as Generation 3. */
+/** Three generations of lending - CF Money framed as Generation 3. */
 export function Shift() {
   const rootRef = useRef<HTMLElement>(null);
 
@@ -103,7 +103,7 @@ export function Shift() {
           ))}
         </div>
 
-        {/* Generation 3 — the statement card */}
+        {/* Generation 3 - the statement card */}
         <div
           data-gen3
           className="relative mt-5 overflow-hidden rounded-[2rem] bg-blue px-7 py-14 md:px-12 md:py-20"
@@ -121,14 +121,14 @@ export function Shift() {
                   Gen 3
                 </span>
                 <span className="eyebrow text-[9px] text-white/70">
-                  CF Money — AI-native
+                  CF Money - AI-native
                 </span>
               </div>
               <h3 className="display mt-8 text-[length:var(--text-h3)] text-white">
                 The <span className="accent-word">conversation</span>
               </h3>
               <p className="mt-4 max-w-[36ch] leading-[1.75] text-white/75">
-                Technology isn&apos;t our enabler — it is the product. AI drives every
+                Technology isn&apos;t our enabler, it is the product. AI drives every
                 decision, from acquisition to collections.
               </p>
             </div>

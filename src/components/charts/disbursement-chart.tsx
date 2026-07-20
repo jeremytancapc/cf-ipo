@@ -47,6 +47,7 @@ export function DisbursementChart() {
             }}
             formatter={(value) => [`S$${value}M`, "Disbursed"]}
             labelStyle={{ color: "rgba(255,255,255,0.6)" }}
+            itemStyle={{ color: "#ffffff" }}
           />
           <Bar
             dataKey="amount_m"

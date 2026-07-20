@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand — Capital C Corporation */
+  /* Brand - Capital C Corporation */
   --color-blue: #2d5384;
   --color-blue-deep: #24446d;
   --color-sky: #00acfc;
@@ -54,7 +54,7 @@ body {
   color: var(--color-navy-deep);
 }
 
-/* ————— Typography helpers ————— */
+/* ----- Typography helpers ----- */
 
 /* Small bold uppercase label */
 .eyebrow {
@@ -101,7 +101,7 @@ body {
   opacity: 0.65;
 }
 
-/* ————— Pills ————— */
+/* ----- Pills ----- */
 .pill {
   display: inline-flex;
   align-items: center;
@@ -151,7 +151,7 @@ body {
   background: var(--color-blue-deep);
 }
 
-/* ————— Space sections: deep navy radial ————— */
+/* ----- Space sections: deep navy radial ----- */
 .space-section {
   background:
     radial-gradient(120% 90% at 70% 10%, #21395a 0%, var(--color-navy) 45%, var(--color-navy-deep) 100%);

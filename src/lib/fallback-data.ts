@@ -15,7 +15,7 @@ import type {
  */
 
 export const fallbackStats: Stat[] = [
-  { key: "avg_loan_size", label: "Average loan size", value: 3350, prefix: "SGD ", suffix: "", decimals: 0, note: null, ord: 1 },
+  { key: "avg_loan_size", label: "Average loan size", value: 3350, prefix: "S$", suffix: "", decimals: 0, note: null, ord: 1 },
   { key: "loan_count", label: "Loans disbursed", value: 107030, prefix: "", suffix: "+", decimals: 0, note: null, ord: 2 },
   { key: "cumulative_disbursed", label: "Cumulative disbursed", value: 276, prefix: "S$", suffix: "M+", decimals: 0, note: null, ord: 3 },
   { key: "loans_outstanding", label: "Loans outstanding", value: 24, prefix: "S$", suffix: "M+", decimals: 0, note: null, ord: 4 },
@@ -23,10 +23,10 @@ export const fallbackStats: Stat[] = [
   { key: "tam_2025", label: "Singapore TAM, 2025", value: 2.8, prefix: "S$", suffix: "B+", decimals: 1, note: null, ord: 6 },
   { key: "tam_2031", label: "Alternative lending opportunity by 2031", value: 4.5, prefix: "S$", suffix: "B", decimals: 1, note: null, ord: 7 },
   { key: "market_captured", label: "Of TAM disbursed to date", value: 2.5, prefix: "", suffix: "%", decimals: 1, note: "Enormous remaining runway", ord: 8 },
-  { key: "sector_cagr", label: "SG alt-lending CAGR 2024–2028", value: 16.9, prefix: "", suffix: "%", decimals: 1, note: null, ord: 9 },
+  { key: "sector_cagr", label: "SG alt-lending CAGR 2024-2028", value: 16.9, prefix: "", suffix: "%", decimals: 1, note: null, ord: 9 },
   { key: "conversion_multiple", label: "Higher conversion vs traditional campaigns", value: 3, prefix: "", suffix: "×", decimals: 0, note: null, ord: 10 },
   { key: "capital_raised", label: "Cumulative hybrid / debt capital raised since 2017", value: 100, prefix: "~S$", suffix: "M", decimals: 0, note: null, ord: 11 },
-  { key: "ipo_mcap", label: "Implied IPO market cap", value: 130, prefix: "~S$", suffix: "M", decimals: 0, note: "15× P/E on FY26–27 avg pre-tax income", ord: 12 },
+  { key: "ipo_mcap", label: "Implied IPO market cap", value: 130, prefix: "~S$", suffix: "M", decimals: 0, note: "15× P/E on FY26-27 avg pre-tax income", ord: 12 },
   { key: "profit_margin_low", label: "Sustained profit margin, lower bound", value: 50, prefix: "", suffix: "%", decimals: 0, note: null, ord: 13 },
   { key: "profit_margin_high", label: "Sustained profit margin, upper bound", value: 60, prefix: "", suffix: "%", decimals: 0, note: null, ord: 14 },
 ];

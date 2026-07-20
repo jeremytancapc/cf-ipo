@@ -2,7 +2,7 @@
 -- Run this once in the Supabase SQL Editor (Dashboard → SQL Editor → paste → Run).
 -- After that, edit values in Table Editor and the live site updates on next page load.
 
--- ————————————————— Schema —————————————————
+-- ----- Schema -----
 
 create table if not exists public.stats (
   key text primary key,
@@ -81,7 +81,7 @@ create table if not exists public.roe_scenarios (
   ord int default 0
 );
 
--- ————————————————— Row Level Security: public read-only —————————————————
+-- ----- Row Level Security: public read-only -----
 
 alter table public.stats enable row level security;
 alter table public.disbursements enable row level security;
@@ -114,10 +114,10 @@ alter table public.contact_requests enable row level security;
 drop policy if exists "public insert" on public.contact_requests;
 create policy "public insert" on public.contact_requests for insert with check (true);
 
--- ————————————————— Seed data (from the pre-IPO deck) —————————————————
+-- ----- Seed data (from the pre-IPO deck) -----
 
 insert into public.stats (key, label, value, prefix, suffix, decimals, note, ord) values
-  ('avg_loan_size', 'Average loan size', 3350, 'SGD ', '', 0, null, 1),
+  ('avg_loan_size', 'Average loan size', 3350, 'S$', '', 0, null, 1),
   ('loan_count', 'Loans disbursed', 107030, '', '+', 0, null, 2),
   ('cumulative_disbursed', 'Cumulative disbursed', 276, 'S$', 'M+', 0, null, 3),
   ('loans_outstanding', 'Loans outstanding', 24, 'S$', 'M+', 0, null, 4),
@@ -125,10 +125,10 @@ insert into public.stats (key, label, value, prefix, suffix, decimals, note, ord
   ('tam_2025', 'Singapore TAM, 2025', 2.8, 'S$', 'B+', 1, null, 6),
   ('tam_2031', 'Alternative lending opportunity by 2031', 4.5, 'S$', 'B', 1, null, 7),
   ('market_captured', 'Of TAM disbursed to date', 2.5, '', '%', 1, 'Enormous remaining runway', 8),
-  ('sector_cagr', 'SG alt-lending CAGR 2024–2028', 16.9, '', '%', 1, null, 9),
+  ('sector_cagr', 'SG alt-lending CAGR 2024-2028', 16.9, '', '%', 1, null, 9),
   ('conversion_multiple', 'Higher conversion vs traditional campaigns', 3, '', '×', 0, null, 10),
   ('capital_raised', 'Cumulative hybrid / debt capital raised since 2017', 100, '~S$', 'M', 0, null, 11),
-  ('ipo_mcap', 'Implied IPO market cap', 130, '~S$', 'M', 0, '15× P/E on FY26–27 avg pre-tax income', 12),
+  ('ipo_mcap', 'Implied IPO market cap', 130, '~S$', 'M', 0, '15× P/E on FY26-27 avg pre-tax income', 12),
   ('profit_margin_low', 'Sustained profit margin, lower bound', 50, '', '%', 0, null, 13),
   ('profit_margin_high', 'Sustained profit margin, upper bound', 60, '', '%', 0, null, 14)
 on conflict (key) do update set

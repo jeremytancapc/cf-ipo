@@ -18,7 +18,7 @@ const palette = [
 
 /**
  * Static scattered-dot backdrop for dark sections, echoing the reference's
- * particle field. Drawn once per resize — zero per-frame cost.
+ * particle field. Drawn once per resize - zero per-frame cost.
  */
 export function Starfield({ className, density = 0.55 }: StarfieldProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);

@@ -77,7 +77,7 @@ export function InvestorGate() {
           onClick={acknowledge}
           className="pill pill--teal mt-10"
         >
-          I understand — I am an Accredited Investor
+          I understand, I am an Accredited Investor
           <span aria-hidden>→</span>
         </button>
       </div>

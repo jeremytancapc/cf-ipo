@@ -20,7 +20,7 @@ const series = [
 
 type SeriesKey = (typeof series)[number]["key"];
 
-/** FY2024–2031 projections with a series toggle. Rendered on white. */
+/** FY2024-2031 projections with a series toggle. Rendered on white. */
 export function ProjectionsChart() {
   const data = useTable("projections");
   const [active, setActive] = useState<SeriesKey>("revenue_m");

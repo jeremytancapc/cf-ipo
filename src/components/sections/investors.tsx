@@ -42,7 +42,7 @@ const textTiles: TextTile[] = [
   },
 ];
 
-/** Existing Investors & Partners — light (mist) section. */
+/** Existing Investors & Partners - light (mist) section. */
 export function Investors() {
   return (
     <section data-nav-theme="light" className="bg-mist px-5 py-28 md:px-10 md:py-44">

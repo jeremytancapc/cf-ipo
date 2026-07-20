@@ -1,11 +1,11 @@
-# CF Money — Pre-IPO Mini-Site
+# CF Money - Pre-IPO Mini-Site
 
 A scroll-driven presentation site for CF Money's 2027 SGX Catalist listing, under Capital C Corporation branding. Built with Next.js (App Router), Tailwind CSS v4, GSAP + Lenis for scroll effects, Recharts for charts, and Supabase as the live data source.
 
 ## Pages
 
-- `/` — the story: AI-native positioning, proactive lending, moat, traction, market, products, group structure, roadmap
-- `/financials` — the deep dive: projections to FY2031, comparables, sensitivity analysis, uses of proceeds
+- `/` - the story: AI-native positioning, proactive lending, moat, traction, market, products, group structure, roadmap
+- `/financials` - the deep dive: projections to FY2031, comparables, sensitivity analysis, uses of proceeds
 
 ## Run locally
 
@@ -29,7 +29,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=YOUR-ANON-KEY
 
 4. Restart `npm run dev`.
 
-From then on, edit any value in the Supabase **Table Editor** (it works like a spreadsheet) and the live site reflects it on the next page load — no redeploy needed.
+From then on, edit any value in the Supabase **Table Editor** (it works like a spreadsheet) and the live site reflects it on the next page load - no redeploy needed.
 
 ### Tables
 
@@ -38,7 +38,7 @@ From then on, edit any value in the Supabase **Table Editor** (it works like a s
 | `stats` | All headline counters (TAM, loans disbursed, IPO market cap, …) |
 | `disbursements` | Annual loan disbursement bar chart |
 | `market_size` | Market opportunity curve |
-| `projections` | FY2024–2031 revenue / PBT chart + table |
+| `projections` | FY2024-2031 revenue / PBT chart + table |
 | `comparables` | Peer table + market-cap-vs-P/E scatter |
 | `sensitivity` | Sensitivity table + valuation ranges |
 | `roe_scenarios` | ROE scenario cards |

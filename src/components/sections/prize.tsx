@@ -11,7 +11,7 @@ import { useStat } from "@/lib/use-table";
 
 gsap.registerPlugin(ScrollTrigger);
 
-/** Market opportunity: TAM counter, growth curve, captured-share bar — on blue. */
+/** Market opportunity: TAM counter, growth curve, captured-share bar - on blue. */
 export function Prize() {
   const tam = useStat("tam_2031");
   const captured = useStat("market_captured");
@@ -83,7 +83,7 @@ export function Prize() {
               <span className="text-[clamp(2rem,5vw,4.5rem)] text-teal">B</span>
             </div>
             <p className="mt-5 max-w-[38ch] leading-[1.7] text-white/80">
-              Singapore&apos;s alternative-lending disbursement opportunity by 2031 —
+              Singapore&apos;s alternative-lending disbursement opportunity by 2031,
               growing at{" "}
               <span className="font-bold text-teal">
                 {cagr?.value ?? 16.9}% CAGR
@@ -106,7 +106,7 @@ export function Prize() {
                 />
               </div>
               <p className="mt-3 text-[11.5px] text-white/60">
-                Bar shown at 4× scale — the runway is the point.
+                Bar shown at 4× scale; the runway is the point.
               </p>
             </div>
           </Reveal>
@@ -118,7 +118,7 @@ export function Prize() {
               </p>
               <MarketCurve />
               <p className="mt-4 text-[10.5px] leading-relaxed text-ink-soft/80">
-                Source: Statista — alternative lending transaction value by segment,
+                Source: Statista, alternative lending transaction value by segment,
                 Singapore · Research and Markets, 2024 · Google, Temasek &amp; Bain
                 e-Conomy SEA 2024
               </p>

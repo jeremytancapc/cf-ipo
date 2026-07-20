@@ -19,7 +19,7 @@ type SpherePoint = {
 const POINT_COUNT = 2400;
 const TILT = -0.35;
 
-/** Smooth pseudo-noise over the sphere surface — picks the bright patches. */
+/** Smooth pseudo-noise over the sphere surface - picks the bright patches. */
 function patchValue(x: number, y: number, z: number) {
   return (
     Math.sin(x * 2.1 + y * 1.3) * Math.cos(y * 1.7 - z * 2.3) +
@@ -49,7 +49,7 @@ function buildPoints(): SpherePoint[] {
 }
 
 /**
- * Rotating 3D particle sphere on a 2D canvas — the site's signature graphic,
+ * Rotating 3D particle sphere on a 2D canvas - the site's signature graphic,
  * modeled on the reference's WebGL globe. Dependency-free; pauses offscreen;
  * renders a single static frame under prefers-reduced-motion.
  */

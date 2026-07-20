@@ -85,13 +85,23 @@ export function Nav() {
         </Link>
       </div>
 
-      <nav className="pointer-events-auto absolute left-1/2 top-4 hidden -translate-x-1/2 items-center gap-1 rounded-full bg-white p-1.5 shadow-[0_12px_40px_rgba(10,22,38,0.22)] md:flex">
+      <nav
+        className={`pointer-events-auto absolute left-1/2 top-5 hidden -translate-x-1/2 items-center gap-0.5 rounded-full border p-1 backdrop-blur-xl backdrop-saturate-150 transition-colors duration-500 md:flex ${
+          theme === "dark"
+            ? "border-white/12 bg-white/10 shadow-[0_8px_32px_rgba(10,22,38,0.25)]"
+            : "border-ink/8 bg-white/65 shadow-[0_8px_32px_rgba(10,22,38,0.1)]"
+        }`}
+      >
         {!onFinancials &&
           anchors.map((a) => (
             <a
               key={a.href}
               href={a.href}
-              className="rounded-full px-4 py-2.5 text-[13px] font-semibold text-ink transition-colors hover:bg-mist"
+              className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition-colors ${
+                theme === "dark"
+                  ? "text-white/75 hover:bg-white/10 hover:text-white"
+                  : "text-ink-soft hover:bg-ink/5 hover:text-ink"
+              }`}
             >
               {a.label}
             </a>
@@ -99,14 +109,18 @@ export function Nav() {
         {onFinancials && (
           <Link
             href="/"
-            className="rounded-full px-4 py-2.5 text-[13px] font-semibold text-ink transition-colors hover:bg-mist"
+            className={`whitespace-nowrap rounded-full px-3.5 py-1.5 text-[12.5px] font-semibold transition-colors ${
+              theme === "dark"
+                ? "text-white/75 hover:bg-white/10 hover:text-white"
+                : "text-ink-soft hover:bg-ink/5 hover:text-ink"
+            }`}
           >
             ← Back to story
           </Link>
         )}
         <Link
           href={onFinancials ? "/#contact" : "/financials"}
-          className="rounded-full bg-teal px-5 py-2.5 text-[13px] font-bold text-navy-deep transition-colors hover:bg-teal-bright"
+          className="ml-1 whitespace-nowrap rounded-full bg-teal px-4 py-1.5 text-[12.5px] font-bold text-navy-deep transition-colors hover:bg-teal-bright"
         >
           {onFinancials ? "Contact us" : "The numbers"}
         </Link>

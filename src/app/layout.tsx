@@ -11,9 +11,12 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "CF Money — The AI-Native Lender | Capital C Corporation",
+  title: "CF Money - The AI-Native Lender | Capital C Corporation",
   description:
     "Lending at the speed of intelligence. CF Money, a Capital C Corporation company, is targeting a 2027 SGX Catalist listing.",
+  icons: {
+    icon: "/favicon.svg",
+  },
 };
 
 export const viewport: Viewport = {

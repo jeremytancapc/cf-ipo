@@ -23,7 +23,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     gsap.ticker.lagSmoothing(0);
 
     // Lenis owns the scroll position, so same-page anchor jumps must go
-    // through it — otherwise it snaps back on the next frame.
+    // through it - otherwise it snaps back on the next frame.
     const onAnchorClick = (event: MouseEvent) => {
       const anchor = (event.target as HTMLElement).closest("a[href*='#']");
       if (!(anchor instanceof HTMLAnchorElement)) return;

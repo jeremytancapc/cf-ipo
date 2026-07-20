@@ -80,10 +80,10 @@ export function Hero() {
         <ParticleSphere className="h-full w-full" />
       </div>
 
-      <div className="relative flex flex-1 flex-col items-center justify-center px-5 pt-28 text-center">
+      <div className="relative flex flex-1 flex-col items-center justify-center px-5 pt-12 text-center md:pt-28">
         <div
           data-hero-meta
-          className="eyebrow mb-9 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[10px] text-white/75 opacity-0"
+          className="eyebrow mb-9 flex flex-nowrap items-center justify-center gap-x-1.5 whitespace-nowrap text-[length:clamp(6.5px,2.5vw,10px)]! tracking-[0.1em]! text-white/75 opacity-0 sm:gap-x-4 sm:tracking-[0.2em]!"
         >
           <span>Pre-IPO opportunity</span>
           <span className="text-teal">·</span>
@@ -110,7 +110,7 @@ export function Hero() {
           data-hero-meta
           className="mt-9 max-w-[46ch] text-base leading-relaxed text-white/80 opacity-0 md:text-lg"
         >
-          CF Money is the AI-native lender for the underserved — a full suite of
+          CF Money is the AI-native lender for the underserved, a full suite of
           digital lending platforms built by Capital C Corporation.
         </p>
 

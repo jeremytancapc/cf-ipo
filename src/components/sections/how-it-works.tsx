@@ -10,17 +10,17 @@ const steps = [
   {
     n: "01",
     title: "Signals",
-    body: "Transaction patterns, cash-flow dips, life events, seasonality — analysed continuously.",
+    body: "Transaction patterns, cash-flow dips, life events, seasonality, analysed continuously.",
   },
   {
     n: "02",
     title: "AI engine",
-    body: "Predicts a loan need 2–4 weeks before the customer realises it themselves.",
+    body: "Predicts a loan need 2-4 weeks before the customer realises it themselves.",
   },
   {
     n: "03",
     title: "Personalised offer",
-    body: "A tailored amount, term and rate — delivered on the right channel at the right moment.",
+    body: "A tailored amount, term and rate, delivered on the right channel at the right moment.",
   },
   {
     n: "04",
@@ -29,7 +29,7 @@ const steps = [
   },
 ];
 
-/** Interlocking wireframe rings — the reference's feature-icon motif. */
+/** Interlocking wireframe rings - the reference's feature-icon motif. */
 function Rings({ index }: { index: number }) {
   const offset = (index % 3) * 8;
   return (
@@ -116,7 +116,7 @@ export function HowItWorks() {
             </p>
           </div>
           <p className="max-w-[40ch] leading-[1.75] text-white/70 md:text-right">
-            Not a form waiting to be found — a relationship manager that reaches
+            Not a form waiting to be found, a relationship manager that reaches
             out first, powered by data no competitor holds.
           </p>
         </Reveal>

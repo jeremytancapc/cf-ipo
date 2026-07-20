@@ -42,7 +42,7 @@ export async function submitContact(
   if (!supabase) {
     return {
       status: "error",
-      message: "Submissions are temporarily unavailable — please email us at ipo@capc.com.sg.",
+      message: "Submissions are temporarily unavailable, please email us at ipo@capc.com.sg.",
     };
   }
 
@@ -51,12 +51,12 @@ export async function submitContact(
     console.error("contact_requests insert failed:", error.message);
     return {
       status: "error",
-      message: "Something went wrong — please email us at ipo@capc.com.sg.",
+      message: "Something went wrong, please email us at ipo@capc.com.sg.",
     };
   }
 
   return {
     status: "success",
-    message: "Thank you — our investor relations team will be in touch shortly.",
+    message: "Thank you, our investor relations team will be in touch shortly.",
   };
 }

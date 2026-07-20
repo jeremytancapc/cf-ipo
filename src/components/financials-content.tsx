@@ -19,7 +19,7 @@ const snapshotKeys = [
 ];
 
 function fmt(n: number | null, opts: { suffix?: string; decimals?: number } = {}) {
-  if (n === null) return "—";
+  if (n === null) return "-";
   return `${n.toLocaleString("en-SG", {
     minimumFractionDigits: opts.decimals ?? 0,
     maximumFractionDigits: opts.decimals ?? 2,
@@ -40,7 +40,7 @@ export function FinancialsContent() {
 
   return (
     <div>
-      {/* Header — blue field */}
+      {/* Header - blue field */}
       <section data-nav-theme="dark" className="bg-blue px-5 pb-24 pt-36 text-center md:px-10 md:pb-32 md:pt-44">
         <Reveal>
           <p className="eyebrow text-teal">CF Money · The data room</p>
@@ -48,7 +48,7 @@ export function FinancialsContent() {
             The numbers, <span className="accent-word">in full.</span>
           </h1>
           <p className="mx-auto mt-8 max-w-[52ch] leading-[1.75] text-white/80">
-            Every figure on this page is served live from our data room — base-case
+            Every figure on this page is served live from our data room: base-case
             projections, peer benchmarks, sensitivity scenarios and capital
             allocation. Confidential; for Accredited Investors only.
           </p>
@@ -152,7 +152,7 @@ export function FinancialsContent() {
                   <td key={p.fiscal_year} className="py-4 pr-4 text-right text-ink-soft">
                     {p.revenue_m > 0
                       ? `${Math.round((p.pbt_m / p.revenue_m) * 100)}%`
-                      : "—"}
+                      : "-"}
                   </td>
                 ))}
               </tr>
@@ -164,7 +164,7 @@ export function FinancialsContent() {
         </Reveal>
       </section>
 
-      {/* Valuation / comparables — starfield section */}
+      {/* Valuation / comparables - starfield section */}
       <section data-nav-theme="dark" className="dark-section space-section relative overflow-hidden px-5 py-20 md:px-10 md:py-28">
         <Starfield />
         <div className="relative">
@@ -176,7 +176,7 @@ export function FinancialsContent() {
               className="md:col-span-7"
               title={
                 <>
-                  Comped against listed peers —{" "}
+                  Comped against listed peers,{" "}
                   <span className="accent-word">priced to re-rate.</span>
                 </>
               }
@@ -190,19 +190,19 @@ export function FinancialsContent() {
                 />
               </div>
               <p className="eyebrow mt-3 text-[9.5px] text-white/55">
-                {ipoMcap?.note ?? "implied IPO market cap · 15× P/E on FY26–27 avg pre-tax income"}
+                {ipoMcap?.note ?? "implied IPO market cap · 15× P/E on FY26-27 avg pre-tax income"}
               </p>
             </Reveal>
           </div>
 
           <Reveal className="mt-16 rounded-[2rem] bg-white p-5 shadow-[0_30px_80px_rgba(10,22,38,0.35)] md:p-9">
             <p className="eyebrow mb-4 text-[10px] text-ink-soft">
-              Market cap vs P/E — peers ▪ and CF target ◆
+              Market cap vs P/E - peers ▪ and CF target ◆
             </p>
             <ComparablesScatter />
             <p className="mt-4 max-w-[80ch] text-[11px] leading-relaxed text-ink-soft">
               CF&apos;s 15× target sits mid-range on P/E at a fraction of peer market
-              caps — meaningful re-rating room as scale catches up to valuation. Peers
+              caps, with meaningful re-rating room as scale catches up to valuation. Peers
               listed on SGX / Bursa Malaysia operating as non-bank financial
               institutions (RM millions).
             </p>
@@ -305,7 +305,7 @@ export function FinancialsContent() {
             </tbody>
           </table>
           <p className="mt-4 text-[11px] text-ink-soft/80">
-            Valuation range on P/E multiple in IPO year — RHB mandate guide.
+            Valuation range on P/E multiple in IPO year, RHB mandate guide.
           </p>
         </Reveal>
 

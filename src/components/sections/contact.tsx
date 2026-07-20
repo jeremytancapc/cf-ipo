@@ -47,7 +47,7 @@ export function Contact() {
             </h2>
             <p className="mt-7 max-w-[42ch] leading-[1.75] text-white/70">
               Let us understand your investment objectives and walk you through the
-              CF Money pre-IPO opportunity — or go straight to the data room.
+              CF Money pre-IPO opportunity, or go straight to the data room.
             </p>
             <Link href="/financials" className="pill pill--outline mt-8">
               The numbers <span aria-hidden>→</span>

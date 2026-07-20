@@ -14,7 +14,7 @@ const advantages = [
     n: "02",
     tag: "Models",
     title: "Custom models that keep learning",
-    body: "Trained on our specific segments, retrained on fresh performance data — better every quarter.",
+    body: "Trained on our specific segments, retrained on fresh performance data, better every quarter.",
   },
   {
     n: "03",

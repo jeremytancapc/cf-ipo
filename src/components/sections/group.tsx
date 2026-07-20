@@ -100,7 +100,7 @@ export function Group() {
                   CF Money<span className="text-teal">.</span>
                 </h3>
                 <p className="mt-4 max-w-[44ch] leading-[1.75] text-white/70">
-                  Individual lending, Singapore — the group&apos;s flagship. The
+                  Individual lending, Singapore, the group&apos;s flagship. The
                   AI-native lending engine heading to the SGX Catalist board.
                 </p>
               </div>
@@ -113,7 +113,7 @@ export function Group() {
                   />
                 </div>
                 <p className="eyebrow mt-4 text-[9.5px] text-white/55">
-                  cumulative hybrid / debt capital raised since 2017 — backed by
+                  cumulative hybrid / debt capital raised since 2017, backed by
                   family offices &amp; HNWIs
                 </p>
               </div>
