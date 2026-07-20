@@ -142,6 +142,101 @@ body {
   border-color: white;
 }
 
+/* Outline variant for light sections */
+.pill--outline-ink {
+  border: 1px solid rgba(16, 29, 44, 0.35);
+  color: var(--color-ink);
+}
+
+.pill--outline-ink:hover {
+  border-color: var(--color-ink);
+}
+
+/* Frosted variant that stays legible over both the off-white hero field
+   and the dark globe it later scrolls over. Dark glass (rather than
+   light) so the rotating teal comet on ::before actually reads against
+   the fill instead of washing out on a near-white background. */
+.pill--glass {
+  position: relative;
+  border: 1px solid transparent;
+  background: rgba(14, 27, 44, 0.88);
+  color: white;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(16, 29, 44, 0.22);
+}
+
+.pill--glass:hover {
+  background: rgba(14, 27, 44, 0.97);
+}
+
+/* Registers --border-angle as an animatable <angle>, so the conic gradient
+   below can be smoothly rotated instead of jumping between keyframes. */
+@property --border-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Tron-style rotating border: a dim teal ring at rest with a brighter
+   comet of light sweeping clockwise around the pill's own outline. The
+   gradient's angle animates (not the element itself), so the pill shape
+   stays perfectly still while only the highlight travels. */
+.pill--glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(6, 222, 192, 0.4) 0deg,
+    rgba(6, 222, 192, 0.4) 290deg,
+    var(--color-teal) 320deg,
+    var(--color-teal-bright) 335deg,
+    var(--color-teal) 350deg,
+    rgba(6, 222, 192, 0.4) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: pill-border-spin 3s linear infinite;
+}
+
+@keyframes pill-border-spin {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill--glass::before {
+    animation: none;
+  }
+}
+
+/* Hero horizon fade: an eased (ease-in-out) gradient, not a plain 2-stop
+   linear one, so the light field melts into navy-deep without a visible
+   band at the midpoint (linear alpha gradients read as having a "step"
+   because lightness isn't perceived linearly). */
+.hero-horizon-fade {
+  background: linear-gradient(
+    180deg,
+    rgba(14, 27, 44, 0) 0%,
+    rgba(14, 27, 44, 0.02) 10%,
+    rgba(14, 27, 44, 0.08) 20%,
+    rgba(14, 27, 44, 0.17) 30%,
+    rgba(14, 27, 44, 0.31) 40%,
+    rgba(14, 27, 44, 0.5) 50%,
+    rgba(14, 27, 44, 0.69) 60%,
+    rgba(14, 27, 44, 0.83) 70%,
+    rgba(14, 27, 44, 0.92) 80%,
+    rgba(14, 27, 44, 0.98) 90%,
+    rgba(14, 27, 44, 1) 100%
+  );
+}
+
 .pill--blue {
   background: var(--color-blue);
   color: white;

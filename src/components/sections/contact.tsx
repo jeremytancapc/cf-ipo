@@ -50,7 +50,7 @@ export function Contact() {
               CF Money pre-IPO opportunity, or go straight to the data room.
             </p>
             <Link href="/financials" className="pill pill--outline mt-8">
-              The numbers <span aria-hidden>→</span>
+              Deep dive into the numbers <span aria-hidden>→</span>
             </Link>
           </Reveal>
 

@@ -8,7 +8,7 @@ const sections = [
   { href: "/#proof", label: "Traction" },
   { href: "/#group", label: "The Group" },
   { href: "/#roadmap", label: "Roadmap" },
-  { href: "/financials", label: "The Numbers" },
+  { href: "/financials", label: "Deep Dive" },
 ];
 
 const contacts = [
