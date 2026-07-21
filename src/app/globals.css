@@ -107,6 +107,25 @@ body {
   opacity: 0.65;
 }
 
+/* Footer nav/contact links: no underline at rest, teal underline + teal
+   text on hover only. */
+.footer-link {
+  font-weight: 700;
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding-bottom: 0.45em;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--color-teal);
+  border-bottom-color: var(--color-teal);
+}
+
 /* ----- Pills ----- */
 .pill {
   display: inline-flex;
@@ -471,6 +490,117 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .aurora-a, .aurora-b { animation: none !important; }
   .gen3-pulse { animation: none !important; opacity: 0 !important; }
+}
+
+/* ----- How-it-works step icon animations ----- */
+
+/* Step 01 Signals: concentric sonar rings that expand and fade. */
+@keyframes step-ping {
+  0%   { transform: scale(0.5); opacity: 0.9; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Step 01 & 02: tiny dot blink for data-activity indicator. */
+@keyframes step-blink {
+  0%, 100% { opacity: 0.9; }
+  50%       { opacity: 0.2; }
+}
+
+/* Step 02 AI engine: satellite nodes orbiting the central chip. */
+@keyframes step-orbit {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Step 03 Offer: stroke-dashoffset draw loop for the message bubble. */
+@keyframes step-draw {
+  0%   { stroke-dashoffset: 220; opacity: 1; }
+  70%  { stroke-dashoffset: 0;   opacity: 1; }
+  88%  { stroke-dashoffset: 0;   opacity: 1; }
+  100% { stroke-dashoffset: 220; opacity: 0; }
+}
+
+/* Step 04 Accept: expanding, fading ripple ring after the click. */
+@keyframes step-ripple {
+  0%   { r: 8;  opacity: 0.9; }
+  100% { r: 32; opacity: 0; }
+}
+
+/* Step 04: checkmark draw loop. */
+@keyframes step-check {
+  0%   { stroke-dashoffset: 36; }
+  50%  { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* Orbit group needs transform-box so rotate() acts around its own centre. */
+.step-orbit-group {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: step-orbit 10s linear infinite;
+}
+
+.step-ping-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.step-ping-ring:nth-child(1) { animation: step-ping 3s ease-out infinite 0s; }
+.step-ping-ring:nth-child(2) { animation: step-ping 3s ease-out infinite 1s; }
+.step-ping-ring:nth-child(3) { animation: step-ping 3s ease-out infinite 2s; }
+
+.step-blink { animation: step-blink 2.4s ease-in-out infinite; }
+.step-blink-delay { animation: step-blink 2.4s ease-in-out infinite 0.8s; }
+
+.step-draw-path {
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+  animation: step-draw 3.5s ease-in-out infinite;
+}
+
+.step-ripple-circle { animation: step-ripple 2s ease-out infinite; }
+.step-ripple-circle:nth-child(2) { animation-delay: 0.7s; }
+
+.step-check-path {
+  stroke-dasharray: 36;
+  animation: step-check 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step-orbit-group { animation: none; }
+  .step-ping-ring   { animation: none; opacity: 0; }
+  .step-blink, .step-blink-delay { animation: none; opacity: 1; }
+  .step-draw-path   { animation: none; stroke-dashoffset: 0; }
+  .step-ripple-circle { animation: none; opacity: 0; }
+  .step-check-path  { animation: none; stroke-dashoffset: 0; }
+}
+
+/* Teal pulse radiating from the centre of the 3x stat, expanding out
+   into the card — the conversion energy rippling outward. Slow and
+   infrequent so it stays a subtle ambient detail, not an attention-grab. */
+@keyframes stat-pulse {
+  0%   { transform: translate(-50%, -50%) scale(0.3); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(5);   opacity: 0; }
+}
+
+.stat-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 1px solid var(--color-teal);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  animation: stat-pulse 10s ease-out infinite;
+}
+
+.stat-pulse-ring:nth-child(2) { animation-delay: 3.3s; }
+.stat-pulse-ring:nth-child(3) { animation-delay: 6.6s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .stat-pulse-ring { animation: none; opacity: 0; }
 }
 
 /* Recharts base overrides */

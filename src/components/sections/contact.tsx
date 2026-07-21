@@ -49,7 +49,7 @@ export function Contact() {
               Let us understand your investment objectives and walk you through the
               CF Money pre-IPO opportunity, or go straight to the data room.
             </p>
-            <Link href="/financials" className="pill pill--outline mt-8">
+            <Link href="/financials" className="pill pill--teal mt-8">
               Deep dive into the numbers <span aria-hidden>→</span>
             </Link>
           </Reveal>
@@ -83,6 +83,9 @@ export function Contact() {
             </div>
           ) : (
             <form action={formAction} className="space-y-9">
+              <div className="border-t border-white/10 pt-10 md:hidden">
+                <p className="eyebrow text-teal">Express your interest below</p>
+              </div>
               <div className="grid gap-9 sm:grid-cols-2">
                 <div>
                   <input
@@ -119,10 +122,10 @@ export function Contact() {
               <div>
                 <input
                   name="organization"
-                  placeholder="Organization name"
+                  placeholder="Organisation name"
                   autoComplete="organization"
                   className="input-underline"
-                  aria-label="Organization name"
+                  aria-label="Organisation name"
                 />
                 <FieldError message={state.fieldErrors?.organization} />
               </div>
@@ -130,7 +133,7 @@ export function Contact() {
                 <textarea
                   name="message"
                   placeholder="Tell us a bit more about what you're looking for"
-                  rows={4}
+                  rows={2}
                   className="input-underline resize-none"
                   aria-label="Message"
                 />

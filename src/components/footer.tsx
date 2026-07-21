@@ -52,7 +52,7 @@ export function Footer() {
               <ul className="mt-6 space-y-3.5">
                 {sections.map((s) => (
                   <li key={s.href}>
-                    <a href={s.href} className="link-underline text-white/85">
+                    <a href={s.href} className="footer-link text-white/85">
                       {s.label}
                     </a>
                   </li>
@@ -66,7 +66,7 @@ export function Footer() {
                   <li key={c.href}>
                     <a
                       href={c.href}
-                      className="link-underline text-white/85"
+                      className="footer-link text-white/85"
                       {...(c.href.startsWith("http")
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}

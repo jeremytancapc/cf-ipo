@@ -8,7 +8,7 @@ const contactSchema = z.object({
   last_name: z.string().trim().min(1, "Last name is required").max(100),
   email: z.email("Enter a valid work email").max(200),
   organization: z.string().trim().max(200).optional(),
-  message: z.string().trim().min(1, "Tell us a bit about what you're looking for").max(4000),
+  message: z.string().trim().min(1, "Tell us a bit more about what you're looking for").max(4000),
 });
 
 export type ContactFormState = {

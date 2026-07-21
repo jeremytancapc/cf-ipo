@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} antialiased`}>
+    <html lang="en-GB" className={`${manrope.variable} antialiased`}>
       <body>
         <InvestorGate />
         <SmoothScroll>{children}</SmoothScroll>

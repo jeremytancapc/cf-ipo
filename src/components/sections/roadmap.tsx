@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SectionHeading } from "../section-heading";
 import { Reveal } from "../reveal";
 import { Starfield } from "../starfield";
+import { SGFlag, PHFlag, MYFlag, INFlag } from "./flags";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,10 +22,10 @@ const milestones = [
 ];
 
 const expansion = [
-  { market: "Singapore", when: "Today", state: "live" },
-  { market: "Philippines", when: "Q4 2027", state: "next" },
-  { market: "Malaysia", when: "Q4 2028", state: "planned" },
-  { market: "India", when: "Q4 2030", state: "planned" },
+  { market: "Singapore", when: "Today", state: "live", Flag: SGFlag },
+  { market: "Philippines", when: "Q4 2027", state: "next", Flag: PHFlag },
+  { market: "Malaysia", when: "Q4 2028", state: "planned", Flag: MYFlag },
+  { market: "India", when: "Q4 2030", state: "planned", Flag: INFlag },
 ];
 
 /** Milestone timeline with a scroll-scrubbed progress spine + expansion strip. */
@@ -123,8 +124,11 @@ export function Roadmap() {
           {expansion.map((e) => (
             <div
               key={e.market}
-              className="rounded-[1.75rem] border border-white/12 bg-white/5 px-6 py-8 backdrop-blur-sm"
+              className="relative rounded-[1.75rem] border border-white/12 bg-white/5 px-6 py-8 backdrop-blur-sm"
             >
+              <span className="absolute right-5 top-5 h-[21px] w-[30px] overflow-hidden rounded-[5px] ring-1 ring-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+                <e.Flag className="h-full w-full" />
+              </span>
               <div className="flex items-center gap-2.5">
                 <span
                   className={`h-2 w-2 rounded-full ${
