@@ -17,7 +17,7 @@ import type {
 export const fallbackStats: Stat[] = [
   { key: "avg_loan_size", label: "Average loan size", value: 3350, prefix: "S$", suffix: "", decimals: 0, note: null, ord: 1 },
   { key: "loan_count", label: "Loans disbursed", value: 107030, prefix: "", suffix: "+", decimals: 0, note: null, ord: 2 },
-  { key: "cumulative_disbursed", label: "Cumulative disbursed", value: 276, prefix: "S$", suffix: "M+", decimals: 0, note: null, ord: 3 },
+  { key: "cumulative_disbursed", label: "Cumulative disbursed", value: 421, prefix: "S$", suffix: "M+", decimals: 0, note: null, ord: 3 },
   { key: "loans_outstanding", label: "Loans outstanding", value: 24, prefix: "S$", suffix: "M+", decimals: 0, note: null, ord: 4 },
   { key: "licensed_countries", label: "Officially licensed markets", value: 3, prefix: "", suffix: "", decimals: 0, note: "Singapore · Philippines · Malaysia", ord: 5 },
   { key: "tam_2025", label: "Singapore TAM, 2025", value: 2.8, prefix: "S$", suffix: "B+", decimals: 1, note: null, ord: 6 },

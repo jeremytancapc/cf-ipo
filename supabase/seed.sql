@@ -119,7 +119,7 @@ create policy "public insert" on public.contact_requests for insert with check (
 insert into public.stats (key, label, value, prefix, suffix, decimals, note, ord) values
   ('avg_loan_size', 'Average loan size', 3350, 'S$', '', 0, null, 1),
   ('loan_count', 'Loans disbursed', 107030, '', '+', 0, null, 2),
-  ('cumulative_disbursed', 'Cumulative disbursed', 276, 'S$', 'M+', 0, null, 3),
+  ('cumulative_disbursed', 'Cumulative disbursed', 421, 'S$', 'M+', 0, null, 3),
   ('loans_outstanding', 'Loans outstanding', 24, 'S$', 'M+', 0, null, 4),
   ('licensed_countries', 'Officially licensed markets', 3, '', '', 0, 'Singapore · Philippines · Malaysia', 5),
   ('tam_2025', 'Singapore TAM, 2025', 2.8, 'S$', 'B+', 1, null, 6),
