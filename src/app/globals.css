@@ -301,6 +301,178 @@ body {
   border-color: var(--color-teal);
 }
 
+/* ----- Generation cards: escalating glass theme ----- */
+
+/* Gen 1 – dull sepia slab: aged paper / manila folder, the analog past.
+   Warm brown gradient distinct from every other card in the section. */
+.card-gen1 {
+  background:
+    /* Faint ruled-paper lines to evoke paper forms */
+    repeating-linear-gradient(
+      180deg,
+      transparent,
+      transparent 2.4rem,
+      rgba(210, 185, 140, 0.06) 2.4rem,
+      rgba(210, 185, 140, 0.06) calc(2.4rem + 1px)
+    ),
+    linear-gradient(
+      150deg,
+      rgba(94, 76, 52, 0.85) 0%,
+      rgba(70, 56, 40, 0.82) 55%,
+      rgba(52, 42, 32, 0.85) 100%
+    );
+  border: 1px solid rgba(196, 170, 124, 0.22);
+  box-shadow: inset 0 1px 0 rgba(214, 190, 148, 0.14);
+}
+
+/* Gen 2 – light frosted glass: clean and familiar, today's web aesthetic.
+   Distinctly lighter/cooler than Gen 1's warm sepia. */
+.card-gen2 {
+  background:
+    /* Dot grid: a digital form-field canvas, the web-era counterpart to
+       Gen 1's ruled paper lines. */
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.20) 1px,
+      transparent 1.4px
+    ) 2px 2px / 22px 22px,
+    linear-gradient(
+      135deg,
+      rgba(190, 220, 245, 0.22) 0%,
+      rgba(150, 195, 235, 0.14) 55%,
+      rgba(255, 255, 255, 0.10) 100%
+    );
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    0 8px 40px rgba(0, 0, 0, 0.25),
+    0 0 0 0.5px rgba(0, 172, 252, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gen 3 – premium dark glass: the showpiece. Animated conic-gradient border. */
+.card-gen3 {
+  position: relative;
+  background: linear-gradient(
+    145deg,
+    rgba(14, 27, 44, 0.88) 0%,
+    rgba(22, 40, 63, 0.80) 50%,
+    rgba(14, 27, 44, 0.92) 100%
+  );
+  border: 1px solid transparent;
+  box-shadow:
+    0 0 80px rgba(6, 222, 192, 0.20),
+    0 0 200px rgba(6, 222, 192, 0.08),
+    inset 0 1px 0 rgba(6, 222, 192, 0.25),
+    0 24px 64px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+}
+
+/* Rotating teal comet border on Gen 3 */
+.card-gen3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--border-angle),
+    rgba(6, 222, 192, 0.15) 0deg,
+    rgba(6, 222, 192, 0.15) 260deg,
+    var(--color-teal) 300deg,
+    var(--color-teal-bright) 325deg,
+    var(--color-teal) 345deg,
+    rgba(6, 222, 192, 0.15) 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: pill-border-spin 6s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-gen3::before {
+    animation: none;
+    background: conic-gradient(
+      from 90deg,
+      rgba(6, 222, 192, 0.15) 0deg,
+      var(--color-teal) 180deg,
+      rgba(6, 222, 192, 0.15) 360deg
+    );
+  }
+}
+
+/* Circuit-board grid: the digital substrate the data signals travel
+   across. Faded toward the card edges so it reads as a surface, not a
+   hard-edged overlay. */
+.card-gen3::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(6, 222, 192, 0.14) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(6, 222, 192, 0.14) 1px, transparent 1px);
+  background-size: 42px 42px;
+  -webkit-mask-image: radial-gradient(ellipse 85% 85% at 50% 45%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 85% 85% at 50% 45%, black 30%, transparent 100%);
+}
+
+/* Data-signal pulses: small points of light that each travel a straight
+   run along one grid axis (set per-instance via --gen3-pulse-dx/dy), then
+   fade and restart. Several run concurrently in different directions and
+   at different speeds, so the grid reads as many independent signals
+   moving at once rather than one sweeping beam. */
+.gen3-pulse {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(47, 240, 212, 0.95) 40%, rgba(47, 240, 212, 0) 80%);
+  box-shadow: 0 0 10px 3px rgba(47, 240, 212, 0.5);
+  pointer-events: none;
+  animation-name: gen3-pulse-travel;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.gen3-pulse--sky {
+  background: radial-gradient(circle, #fff 0%, rgba(0, 172, 252, 0.95) 40%, rgba(0, 172, 252, 0) 80%);
+  box-shadow: 0 0 10px 3px rgba(0, 172, 252, 0.5);
+}
+
+@keyframes gen3-pulse-travel {
+  0% { opacity: 0; transform: translate(0, 0); }
+  12% { opacity: 1; }
+  88% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translate(var(--gen3-pulse-dx, 0px), var(--gen3-pulse-dy, 0px));
+  }
+}
+
+/* Aurora drift animation for Gen 3 glow blobs */
+@keyframes aurora-drift-a {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  33% { transform: translate(8%, -12%) scale(1.08); }
+  66% { transform: translate(-5%, 8%) scale(0.95); }
+}
+
+@keyframes aurora-drift-b {
+  0%, 100% { transform: translate(0%, 0%) scale(1); }
+  40% { transform: translate(-10%, 6%) scale(1.12); }
+  70% { transform: translate(6%, -8%) scale(0.92); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-a, .aurora-b { animation: none !important; }
+  .gen3-pulse { animation: none !important; opacity: 0 !important; }
+}
+
 /* Recharts base overrides */
 .recharts-text {
   font-family: var(--font-sans);
