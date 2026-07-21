@@ -30,7 +30,7 @@ export function Footer() {
           <div>
             <div className="relative h-10 w-52 md:h-14 md:w-72">
               <Image
-                src="/cf-money-logo-white.png"
+                src="/cf-money-logo-white.webp"
                 alt="CF Money"
                 fill
                 sizes="(max-width: 768px) 208px, 288px"

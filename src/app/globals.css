@@ -603,6 +603,123 @@ body {
   .stat-pulse-ring { animation: none; opacity: 0; }
 }
 
+/* ----- Group section: org-chart connectors from Capital C down through
+   CF Money to each operating entity, with a travelling light signifying
+   capital/data flowing outward to the group's businesses. ----- */
+.connector-line {
+  position: relative;
+}
+
+.connector-dot {
+  position: absolute;
+  left: 50%;
+  top: -4%;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(47, 240, 212, 0.95) 45%, rgba(47, 240, 212, 0) 80%);
+  box-shadow: 0 0 8px 2px rgba(47, 240, 212, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  animation: connector-flow-down 2.6s ease-in-out infinite;
+}
+
+@keyframes connector-flow-down {
+  0% { top: -4%; opacity: 0; }
+  14% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { top: 104%; opacity: 0; }
+}
+
+/* Desktop fan-out relay, one shared 3.2s clock telling a single story:
+   a lone light travels down the stem (0-30%); at the junction it splits
+   into two dots that visibly travel outward along the horizontal trunk,
+   left and right (30-50%); each drop's light fires at the exact moment a
+   trunk dot passes its column — centre at 30%, adjacent at 40%, outer at
+   50% (per-column stagger set inline via animation-delay) — so every card
+   light hands off naturally from the one original stem light. */
+.connector-dot--relay-stem,
+.connector-dot--relay-drop {
+  animation-duration: 3.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.connector-dot--relay-stem {
+  animation-name: connector-relay-stem;
+}
+
+.connector-dot--relay-drop {
+  animation-name: connector-relay-drop;
+}
+
+@keyframes connector-relay-stem {
+  0%, 2% { top: -4%; opacity: 0; }
+  7% { opacity: 1; }
+  29% { top: 100%; opacity: 1; }
+  30% { top: 100%; opacity: 0; }
+  100% { top: 100%; opacity: 0; }
+}
+
+@keyframes connector-relay-drop {
+  0%, 30% { top: -4%; opacity: 0; }
+  32% { opacity: 1; }
+  48% { top: 104%; opacity: 1; }
+  50% { top: 104%; opacity: 0; }
+  100% { top: 104%; opacity: 0; }
+}
+
+/* Trunk travellers: the two dots born from the stem light at the junction.
+   They animate `left` from the centre (50%) to each end (0% / 100%) at
+   constant speed, passing the adjacent columns (30% / 70%) at 40% of the
+   cycle and the outer columns (10% / 90%) at 50%, exactly when those
+   columns' drop dots fire. */
+.connector-dot-trunk {
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin: -3px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, rgba(47, 240, 212, 0.95) 45%, rgba(47, 240, 212, 0) 80%);
+  box-shadow: 0 0 8px 2px rgba(47, 240, 212, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  animation-duration: 3.2s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.connector-dot-trunk--left {
+  animation-name: connector-trunk-travel-left;
+}
+
+.connector-dot-trunk--right {
+  animation-name: connector-trunk-travel-right;
+}
+
+@keyframes connector-trunk-travel-right {
+  0%, 30% { left: 50%; opacity: 0; }
+  31% { opacity: 1; }
+  49% { opacity: 1; }
+  50%, 100% { left: 90%; opacity: 0; }
+}
+
+@keyframes connector-trunk-travel-left {
+  0%, 30% { left: 50%; opacity: 0; }
+  31% { opacity: 1; }
+  49% { opacity: 1; }
+  50%, 100% { left: 10%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .connector-dot,
+  .connector-dot--relay-stem,
+  .connector-dot--relay-drop,
+  .connector-dot-trunk { animation: none; opacity: 0; }
+}
+
 /* Recharts base overrides */
 .recharts-text {
   font-family: var(--font-sans);

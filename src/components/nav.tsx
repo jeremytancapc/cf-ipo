@@ -58,7 +58,7 @@ export function Nav() {
     };
   }, []);
 
-  const logoSrc = theme === "light" ? "/capc-logo-blue.png" : "/capc-logo-white.png";
+  const logoSrc = theme === "light" ? "/capc-logo-blue.webp" : "/capc-logo-white.webp";
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
