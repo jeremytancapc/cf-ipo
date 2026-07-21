@@ -312,3 +312,9 @@ body {
 .recharts-tooltip-wrapper {
   outline: none;
 }
+
+.recharts-surface,
+.recharts-wrapper *:focus,
+.recharts-wrapper *:focus-visible {
+  outline: none !important;
+}

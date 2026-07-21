@@ -7,17 +7,24 @@ type LogoTile = {
   src: string;
   /** Tailwind classes for the image container (width + height). */
   imgClass?: string;
+  /**
+   * Optical-alignment nudge: some source logos have their visual weight
+   * (wordmark) biased toward the bottom of their canvas, which reads as
+   * "sitting low" even though the image is mathematically centered. This
+   * shifts the container a touch to compensate.
+   */
+  nudgeClass?: string;
 };
 
 const logoTiles: LogoTile[] = [
-  { name: "Phillip Capital",            src: "/investors/phillip-capital.jpg",    imgClass: "h-10 w-full" },
-  { name: "Paradise Group",             src: "/investors/paradise-group.webp",    imgClass: "h-16 w-full" },
-  { name: "Citystate Group",            src: "/investors/citystate-group.png",    imgClass: "h-10 w-full" },
-  { name: "Rhodium Capital",            src: "/investors/rhodium-capital.jpeg",   imgClass: "h-14 w-14"   },
-  { name: "Singapura Finance",          src: "/investors/singapura-finance.png",  imgClass: "h-14 w-full" },
-  { name: "Sing Investments & Finance", src: "/investors/sing-investments.png",   imgClass: "h-14 w-full" },
-  { name: "Azure Capital",              src: "/investors/azure-capital.jpeg",     imgClass: "h-14 w-14"   },
-  { name: "Luminor Capital",            src: "/investors/luminor-capital.avif",   imgClass: "h-10 w-full" },
+  { name: "Phillip Capital",            src: "/investors/phillip-capital.jpg",    imgClass: "h-20 w-full" },
+  { name: "Paradise Group",             src: "/investors/paradise-group.jpg",     imgClass: "h-20 w-full" },
+  { name: "Citystate Group",            src: "/investors/citystate-group.png",    imgClass: "h-14 w-full" },
+  { name: "Rhodium Capital",            src: "/investors/rhodium-capital.jpeg",   imgClass: "h-16 w-16"   },
+  { name: "Singapura Finance",          src: "/investors/singapura-finance.png",  imgClass: "h-16 w-full", nudgeClass: "-translate-y-1" },
+  { name: "Sing Investments & Finance", src: "/investors/sing-investments.png",   imgClass: "h-16 w-full", nudgeClass: "-translate-y-1" },
+  { name: "Azure Capital",              src: "/investors/azure-capital.jpeg",     imgClass: "h-16 w-16"   },
+  { name: "Luminor Capital",            src: "/investors/luminor-capital.avif",   imgClass: "h-14 w-full" },
 ];
 
 type TextTile = { label: string; icon: React.ReactNode };
@@ -79,7 +86,7 @@ export function Investors() {
           {textTiles.map((t) => (
             <div
               key={t.label}
-              className="flex flex-col items-start justify-end gap-4 rounded-2xl bg-blue px-5 py-6"
+              className="flex flex-col items-start justify-start gap-4 rounded-2xl bg-blue px-5 py-6"
             >
               <span className="text-teal/80">{t.icon}</span>
               <p className="text-[13px] font-semibold leading-snug text-white">
@@ -92,10 +99,12 @@ export function Investors() {
           {logoTiles.map((tile) => (
             <div
               key={tile.name}
-              className="flex items-center justify-center rounded-2xl bg-white px-5 py-6 shadow-[0_4px_20px_rgba(14,27,44,0.07)]"
-              style={{ minHeight: "120px" }}
+              className="flex items-center justify-center rounded-2xl bg-white px-5 py-5 shadow-[0_4px_20px_rgba(14,27,44,0.07)]"
+              style={{ minHeight: "136px" }}
             >
-              <div className={`relative ${tile.imgClass ?? "h-10 w-full"}`}>
+              <div
+                className={`relative ${tile.imgClass ?? "h-10 w-full"} ${tile.nudgeClass ?? ""}`}
+              >
                 <Image
                   src={tile.src}
                   alt={tile.name}
@@ -107,12 +116,6 @@ export function Investors() {
               </div>
             </div>
           ))}
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <p className="mt-8 text-[12px] text-ink-soft/70">
-            CONFIDENTIAL · DO NOT DISTRIBUTE
-          </p>
         </Reveal>
       </div>
     </section>
