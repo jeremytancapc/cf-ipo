@@ -68,7 +68,7 @@ export function Investors() {
 
         {/* Capital banner */}
         <Reveal delay={0.1}>
-          <div className="mt-12 flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl bg-navy-deep px-7 py-5 md:mt-16 md:rounded-[1.5rem] md:px-10 md:py-6">
+          <div className="card-shine mt-12 flex flex-wrap items-baseline gap-x-2 gap-y-1 rounded-2xl bg-navy-deep px-7 py-5 md:mt-16 md:rounded-[1.5rem] md:px-10 md:py-6">
             <span className="text-xl font-bold text-teal md:text-2xl">~SGD 100M</span>
             <span className="text-sm text-white/75 md:text-base">
               cumulative notional hybrid / debt capital raised since{" "}
@@ -86,7 +86,7 @@ export function Investors() {
           {textTiles.map((t) => (
             <div
               key={t.label}
-              className="flex flex-col items-start justify-start gap-4 rounded-2xl bg-blue px-5 py-6"
+              className="card-shine flex flex-col items-start justify-start gap-4 rounded-2xl bg-blue px-5 py-6"
             >
               <span className="text-teal/80">{t.icon}</span>
               <p className="text-[13px] font-semibold leading-snug text-white">
@@ -99,7 +99,7 @@ export function Investors() {
           {logoTiles.map((tile) => (
             <div
               key={tile.name}
-              className="flex items-center justify-center rounded-2xl bg-white px-5 py-5 shadow-[0_4px_20px_rgba(14,27,44,0.07)]"
+              className="card-shine card-shine--light flex items-center justify-center rounded-2xl bg-white px-5 py-5 shadow-[0_4px_20px_rgba(14,27,44,0.07)]"
               style={{ minHeight: "136px" }}
             >
               <div

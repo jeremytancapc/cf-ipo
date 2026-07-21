@@ -52,20 +52,28 @@ export function Moat() {
           {advantages.map((a, i) => (
             <div
               key={a.n}
-              className={`group rounded-[2rem] bg-white px-7 py-9 shadow-[0_20px_60px_rgba(14,27,44,0.08)] transition-transform duration-500 hover:-translate-y-1 md:px-10 ${
+              className={`group relative overflow-hidden rounded-[2rem] bg-white px-7 py-9 shadow-[0_20px_60px_rgba(14,27,44,0.08)] transition-[transform,background-color] duration-500 hover:-translate-y-1 hover:bg-navy-deep md:px-10 ${
                 i % 2 === 1 ? "md:translate-x-8" : ""
               }`}
             >
+              {/* Teal accent bar — grows on hover (desktop) or scroll-entry (touch) */}
+              <span
+                aria-hidden
+                className="moat-bar absolute left-0 top-1/2 h-0 w-1.5 -translate-y-1/2 rounded-r-full bg-teal transition-all duration-500 group-hover:h-[55%]"
+              />
+
               <div className="flex items-center gap-3">
-                <span className="eyebrow rounded-full bg-blue px-3 py-1.5 text-[9px] text-white">
+                <span className="eyebrow rounded-full bg-blue px-3 py-1.5 text-[9px] text-white transition-colors duration-500 group-hover:bg-teal group-hover:text-navy-deep">
                   {a.n}
                 </span>
-                <span className="eyebrow text-[9px] text-ink-soft/70">{a.tag}</span>
+                <span className="eyebrow text-[9px] text-ink-soft/70 transition-colors duration-500 group-hover:text-teal">
+                  {a.tag}
+                </span>
               </div>
-              <h3 className="display mt-6 text-xl text-ink transition-colors duration-300 group-hover:text-blue md:text-2xl">
+              <h3 className="display mt-6 text-xl text-ink transition-colors duration-500 group-hover:text-white md:text-2xl">
                 {a.title}
               </h3>
-              <p className="mt-3 max-w-[46ch] text-[15px] leading-[1.7] text-ink-soft">
+              <p className="mt-3 max-w-[46ch] text-[15px] leading-[1.7] text-ink-soft transition-colors duration-500 group-hover:text-white/75">
                 {a.body}
               </p>
             </div>

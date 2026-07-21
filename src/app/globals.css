@@ -518,6 +518,9 @@ body {
 .card-shine {
   position: relative;
   overflow: hidden;
+  /* New stacking context so pseudo-elements can sit above positioned children
+     (e.g. Next.js fill img, which is position:absolute) via z-index. */
+  isolation: isolate;
 }
 
 .card-shine::before {
@@ -525,6 +528,8 @@ body {
   position: absolute;
   inset: 0;
   pointer-events: none;
+  /* Above all card children so the gloss overlays logo images etc. */
+  z-index: 1;
   background: linear-gradient(
     -22deg,
     transparent 28%,
@@ -542,6 +547,7 @@ body {
   left: -60%;
   width: 55%;
   pointer-events: none;
+  z-index: 1;
   background: linear-gradient(
     90deg,
     transparent 0%,
@@ -564,6 +570,30 @@ body {
 
 @media (prefers-reduced-motion: reduce) {
   .card-shine::after { display: none; }
+}
+
+/* Light-background variant: uses a dark-tinted diagonal band so the gloss
+   reads against white or very light card surfaces. */
+.card-shine--light::before {
+  background: linear-gradient(
+    -22deg,
+    transparent 28%,
+    rgba(14, 27, 44, 0.03) 42%,
+    rgba(14, 27, 44, 0.07) 50%,
+    rgba(14, 27, 44, 0.03) 58%,
+    transparent 72%
+  );
+}
+
+.card-shine--light::after {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(14, 27, 44, 0.04) 40%,
+    rgba(14, 27, 44, 0.09) 50%,
+    rgba(14, 27, 44, 0.04) 60%,
+    transparent 100%
+  );
 }
 
 /* ---- 01 Platinum — light silver metallic ---- */
@@ -889,6 +919,27 @@ body {
   .connector-dot--relay-stem,
   .connector-dot--relay-drop,
   .connector-dot-trunk { animation: none; opacity: 0; }
+}
+
+/* Moat cards: scroll-triggered bar reveal for touch / no-hover devices.
+   On desktop the hover effect handles everything; here we drive the same
+   bar animation purely from scroll position so mobile users see the effect
+   as each card enters the viewport. Uses the scroll-driven animation API
+   (Chrome 115+, Safari 18.2+). Wrapped in @supports so older browsers
+   simply show no bar — graceful degradation. */
+@media (hover: none) {
+  @supports (animation-timeline: view()) {
+    @keyframes moat-bar-enter {
+      from { height: 0; }
+      to   { height: 55%; }
+    }
+
+    .moat-bar {
+      animation: moat-bar-enter linear both;
+      animation-timeline: view();
+      animation-range: entry 10% entry 60%;
+    }
+  }
 }
 
 /* Recharts base overrides */
