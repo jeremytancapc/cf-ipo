@@ -128,10 +128,14 @@ export function Roadmap() {
             >
               {/* Flag watermark: large, low-opacity, tucked behind the copy
                   in the card's empty lower-right so it never competes with
-                  or overlaps the heading text at any device font scale. */}
+                  or overlaps the heading text at any device font scale.
+                  The live market keeps its full flag colors to stand out;
+                  future markets stay desaturated until they go live. */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute -bottom-8 -right-8 block h-24 w-36 rotate-[6deg] opacity-[0.22] grayscale"
+                className={`pointer-events-none absolute -bottom-8 -right-8 block h-24 w-36 rotate-[6deg] ${
+                  e.state === "live" ? "opacity-40" : "opacity-[0.22] grayscale"
+                }`}
               >
                 <e.Flag className="h-full w-full" />
               </span>

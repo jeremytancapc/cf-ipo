@@ -30,29 +30,25 @@ export function Proof() {
       <Starfield />
 
       <div className="relative">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <SectionHeading
-            index="04"
-            eyebrow="Proof"
-            tone="space"
-            title={
-              <>
-                The model already <span className="accent-word">works.</span>
-              </>
-            }
-          />
-          <Reveal delay={0.15}>
-            <p className="eyebrow text-[10px] text-white/55">
-              Annual loan disbursement · Individual lending · SGD
-            </p>
-          </Reveal>
-        </div>
+        <SectionHeading
+          index="04"
+          eyebrow="Proof"
+          tone="space"
+          title={
+            <>
+              The model already <span className="accent-word">works.</span>
+            </>
+          }
+        />
 
         <Reveal
           className="mt-14 rounded-[2rem] border border-white/10 bg-white/4 p-5 backdrop-blur-sm md:mt-20 md:p-9"
           y={60}
         >
           <DisbursementChart />
+          <p className="eyebrow mt-6 text-center text-[10px] text-white/55">
+            CF Money&apos;s annual loan disbursement for individual lending, in SGD
+          </p>
         </Reveal>
 
         <Reveal
