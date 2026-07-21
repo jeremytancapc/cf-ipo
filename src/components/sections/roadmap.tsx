@@ -124,12 +124,18 @@ export function Roadmap() {
           {expansion.map((e) => (
             <div
               key={e.market}
-              className="relative rounded-[1.75rem] border border-white/12 bg-white/5 px-6 py-8 backdrop-blur-sm"
+              className="relative overflow-hidden rounded-[1.75rem] border border-white/12 bg-white/5 px-6 py-5 backdrop-blur-sm"
             >
-              <span className="absolute right-5 top-5 h-[21px] w-[30px] overflow-hidden rounded-[5px] ring-1 ring-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.4)]">
+              {/* Flag watermark: large, low-opacity, tucked behind the copy
+                  in the card's empty lower-right so it never competes with
+                  or overlaps the heading text at any device font scale. */}
+              <span
+                aria-hidden
+                className="pointer-events-none absolute -bottom-8 -right-8 block h-24 w-36 rotate-[6deg] opacity-[0.22] grayscale"
+              >
                 <e.Flag className="h-full w-full" />
               </span>
-              <div className="flex items-center gap-2.5">
+              <div className="relative flex items-center gap-2.5">
                 <span
                   className={`h-2 w-2 rounded-full ${
                     e.state === "live"
@@ -141,7 +147,7 @@ export function Roadmap() {
                 />
                 <span className="eyebrow text-[10px] text-white/60">{e.when}</span>
               </div>
-              <h3 className="display mt-4 text-xl text-white md:text-2xl">
+              <h3 className="display relative mt-4 text-xl text-white md:text-2xl">
                 {e.market}
               </h3>
             </div>
