@@ -69,7 +69,8 @@ export function Prize() {
                   value={tam?.value ?? 4.5}
                   prefix="S$"
                   decimals={1}
-                  duration={2}
+                  duration={3.2}
+                  ease="power1.out"
                 />
               </span>
               <span className="text-[clamp(2rem,5vw,4.5rem)] text-teal">B</span>
@@ -98,7 +99,7 @@ export function Prize() {
                 />
               </div>
               <p className="mt-3 text-[11.5px] text-white/60">
-                Bar shown at 4× scale; the runway is the point.
+                {(100 - capturedPct).toFixed(1)}% of the market remains unclaimed.
               </p>
             </div>
           </Reveal>

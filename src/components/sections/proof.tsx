@@ -62,7 +62,7 @@ export function Proof() {
           {headline.map((s) => (
             <div
               key={s.key}
-              className="min-w-0 rounded-[1.75rem] border border-white/10 bg-white/4 px-4 py-6 backdrop-blur-sm md:px-6 md:py-8"
+              className="card-shine min-w-0 rounded-[1.75rem] border border-white/10 bg-white/4 px-4 py-6 backdrop-blur-sm md:px-6 md:py-8"
             >
               <div className="display whitespace-nowrap text-[clamp(1.15rem,6.4vw,2.1rem)] leading-none text-white md:text-[clamp(1.9rem,3.6vw,3.2rem)]">
                 <Counter
@@ -70,6 +70,8 @@ export function Proof() {
                   prefix={s.prefix ?? ""}
                   suffix={s.suffix ?? ""}
                   decimals={s.decimals}
+                  duration={2.6}
+                  ease="power1.out"
                 />
               </div>
               <p className="eyebrow mt-4 text-[9.5px] text-white/55">{s.label}</p>

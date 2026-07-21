@@ -13,6 +13,8 @@ type CounterProps = {
   decimals?: number;
   className?: string;
   duration?: number;
+  /** GSAP easing name. Defaults to "expo.out"; use something flatter (e.g. "power1.out") for small values that would otherwise look done almost instantly. */
+  ease?: string;
 };
 
 function format(n: number, decimals: number) {
@@ -30,6 +32,7 @@ export function Counter({
   decimals = 0,
   className,
   duration = 1.8,
+  ease = "expo.out",
 }: CounterProps) {
   const ref = useRef<HTMLSpanElement>(null);
 
@@ -47,7 +50,7 @@ export function Counter({
       gsap.to(state, {
         n: value,
         duration,
-        ease: "expo.out",
+        ease,
         scrollTrigger: { trigger: el, start: "top 88%", once: true },
         onUpdate: () => {
           el.textContent = format(state.n, decimals);
@@ -55,7 +58,7 @@ export function Counter({
       });
     }, el);
     return () => ctx.revert();
-  }, [value, decimals, duration]);
+  }, [value, decimals, duration, ease]);
 
   return (
     <span className={className}>

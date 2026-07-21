@@ -39,6 +39,7 @@ export function Moat() {
           index="03"
           eyebrow="The moat"
           tone="light"
+          sticky
           className="md:col-span-5"
           title={
             <>
