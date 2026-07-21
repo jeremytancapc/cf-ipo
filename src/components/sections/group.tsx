@@ -51,14 +51,6 @@ export function Group() {
       data-nav-theme="dark"
       className="dark-section relative overflow-hidden bg-blue px-5 py-28 md:px-10 md:py-44"
     >
-      {/* Giant outline watermark, like the reference's oversized letters */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -right-8 top-8 select-none text-[clamp(10rem,30vw,28rem)] font-extrabold leading-none text-transparent [-webkit-text-stroke:2px_rgba(255,255,255,0.12)]"
-      >
-        CF
-      </div>
-
       <div className="relative">
         <SectionHeading
           index="08"
@@ -72,7 +64,7 @@ export function Group() {
         />
 
         <Reveal className="mt-16 md:mt-24">
-          <div className="rounded-full border border-white/25 bg-white/8 px-7 py-5 backdrop-blur-sm md:px-10">
+          <div className="card-shine rounded-full border border-white/25 bg-white/8 px-7 py-5 backdrop-blur-sm md:px-10">
             <div className="flex flex-wrap items-baseline justify-between gap-2">
               <span className="text-xl font-bold text-white md:text-2xl">
                 Capital C Corporation
@@ -90,13 +82,7 @@ export function Group() {
 
         {/* CF Money spotlight */}
         <Reveal y={56}>
-          <div className="relative overflow-hidden rounded-[2.5rem] bg-navy-deep px-7 py-14 shadow-[0_40px_100px_rgba(10,22,38,0.4)] md:px-12 md:py-18">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-6 -top-10 select-none text-[clamp(7rem,18vw,16rem)] font-extrabold leading-none text-teal/10"
-            >
-              ★
-            </div>
+          <div className="card-shine relative overflow-hidden rounded-[2.5rem] bg-navy-deep px-7 py-14 shadow-[0_40px_100px_rgba(10,22,38,0.4)] md:px-12 md:py-18">
             <div className="relative grid gap-10 md:grid-cols-12 md:items-end">
               <div className="md:col-span-7">
                 <span className="eyebrow inline-block rounded-full bg-teal px-4 py-2 text-[9.5px] text-navy-deep">
@@ -183,7 +169,7 @@ export function Group() {
             const card = (
               <div
                 key={`${e.region}-${i}`}
-                className="rounded-[1.75rem] border border-white/15 bg-white/6 px-6 py-8 backdrop-blur-sm transition-colors duration-500 hover:bg-white/12"
+                className="card-shine rounded-[1.75rem] border border-white/15 bg-white/6 px-6 py-8 backdrop-blur-sm transition-colors duration-500 hover:bg-white/12"
               >
                 <div className="eyebrow text-[9px] text-teal">{e.region}</div>
                 <div className="mt-1.5 text-[11px] font-semibold text-white/55">

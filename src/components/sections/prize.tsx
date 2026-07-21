@@ -48,14 +48,6 @@ export function Prize() {
       data-nav-theme="dark"
       className="dark-section relative overflow-hidden bg-blue px-5 py-28 md:px-10 md:py-44"
     >
-      {/* Giant outline watermark */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -bottom-16 -left-4 select-none text-[clamp(10rem,28vw,26rem)] font-extrabold leading-none text-transparent [-webkit-text-stroke:2px_rgba(6,222,192,0.16)]"
-      >
-        S$
-      </div>
-
       <div className="relative">
         <SectionHeading
           index="06"
