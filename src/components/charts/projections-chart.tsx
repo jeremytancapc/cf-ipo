@@ -3,13 +3,13 @@
 import { useState } from "react";
 import {
   Bar,
+  CartesianGrid,
   ComposedChart,
   LabelList,
   Line,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from "recharts";
 import { useTable } from "@/lib/use-table";
 
@@ -53,21 +53,20 @@ export function ProjectionsChart() {
 
       <div className="mt-8 h-[320px] w-full md:h-[400px]">
         <ResponsiveContainer>
-          <ComposedChart data={rows} margin={{ top: 24, right: 8, bottom: 0, left: -14 }} barCategoryGap="32%">
+          <ComposedChart data={rows} margin={{ top: 24, right: 8, bottom: 0, left: 0 }} barCategoryGap="32%">
+            <CartesianGrid
+              horizontal
+              vertical={false}
+              stroke="#d9e4ed"
+              strokeDasharray="3 8"
+            />
             <XAxis
               dataKey="label"
+              interval={0}
               stroke="#d9e4ed"
-              tick={{ fill: "#4a6076" }}
+              tick={{ fill: "#4a6076", fontSize: 11 }}
               tickLine={false}
               axisLine={{ stroke: "#d9e4ed" }}
-            />
-            <YAxis
-              stroke="#d9e4ed"
-              tick={{ fill: "#4a6076" }}
-              tickLine={false}
-              axisLine={false}
-              tickFormatter={(v: number) => `${v}M`}
-              width={52}
             />
             <Tooltip
               cursor={{ fill: "rgba(45,83,132,0.06)" }}
@@ -105,7 +104,7 @@ export function ProjectionsChart() {
                 dataKey={active}
                 position="top"
                 offset={12}
-                formatter={(v) => `${v}M`}
+                formatter={(v) => `$${v}M`}
                 style={{
                   fill: "#2d5384",
                   fontSize: 11,

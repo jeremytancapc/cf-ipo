@@ -45,15 +45,18 @@ export function Proof() {
           className="mt-14 rounded-[2rem] border border-white/10 bg-white/4 p-5 backdrop-blur-sm md:mt-20 md:p-9"
           y={60}
         >
-          <DisbursementChart />
-          <div className="mt-6 text-center">
-            <p className="eyebrow text-[10px] text-white/55">
-              CF Money&apos;s annual loan disbursement for individual lending, in SGD
+          <div className="mb-7 flow-root md:mb-9">
+            <p className="float-right ml-3 flex shrink-0 items-center gap-1.5 text-[9.5px] text-white/40 sm:text-[10.5px]">
+              <span className="inline-block h-2 w-2 shrink-0 rounded-[3px] border border-dashed border-teal/70 bg-teal/20" />
+              <span className="sm:hidden">(F) forecast</span>
+              <span className="hidden sm:inline">(F) denotes forecast</span>
             </p>
-            <p className="mt-1.5 text-[10.5px] normal-case tracking-normal text-white/35">
-              (F) denotes forecast
+            <p className="text-[9.5px] font-bold uppercase leading-[1.75] tracking-[0.05em] text-white/55 lg:text-[10px] lg:tracking-[0.2em]">
+              CF Money&apos;s annual loan disbursement{" "}
+              <span className="block lg:inline">for individual lending, in SGD</span>
             </p>
           </div>
+          <DisbursementChart />
         </Reveal>
 
         <Reveal

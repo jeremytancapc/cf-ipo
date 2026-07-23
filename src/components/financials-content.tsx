@@ -196,15 +196,20 @@ export function FinancialsContent() {
           </div>
 
           <Reveal className="mt-16 rounded-[2rem] bg-white p-5 shadow-[0_30px_80px_rgba(10,22,38,0.35)] md:p-9">
-            <p className="eyebrow mb-4 text-[10px] text-ink-soft">
-              Market cap vs P/E - peers ▪ and CF target ◆
+            <p className="eyebrow mb-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[10px] text-ink-soft">
+              <span>Market cap vs P/E &mdash; listed peers</span>
+              <span className="inline-flex items-center gap-1.5 font-bold" style={{ color: "#00acfc" }}>
+                <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true" style={{ filter: "drop-shadow(0 0 4px rgba(0,172,252,0.55))", flexShrink: 0 }}>
+                  <path d="M5,0 L10,5 L5,10 L0,5 Z" fill="#00acfc" />
+                </svg>
+                CF Money target
+              </span>
             </p>
             <ComparablesScatter />
-            <p className="mt-4 max-w-[80ch] text-[11px] leading-relaxed text-ink-soft">
-              CF&apos;s 15× target sits mid-range on P/E at a fraction of peer market
-              caps, with meaningful re-rating room as scale catches up to valuation. Peers
-              listed on SGX / Bursa Malaysia operating as non-bank financial
-              institutions (RM millions).
+            <p className="mt-4 text-[11px] leading-relaxed text-ink-soft">
+              CF&apos;s 15× target sits mid-range on P/E at a fraction of peer market caps, with meaningful re-rating room as scale catches up to valuation.
+              <br className="hidden md:block" />
+              Peers listed on SGX / Bursa Malaysia operating as non-bank financial institutions (RM millions).
             </p>
           </Reveal>
 

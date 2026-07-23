@@ -1,14 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   Bar,
   BarChart,
+  CartesianGrid,
   Cell,
   LabelList,
   ResponsiveContainer,
   Tooltip,
   XAxis,
-  YAxis,
 } from "recharts";
 import { useTable } from "@/lib/use-table";
 
@@ -16,15 +17,33 @@ import { useTable } from "@/lib/use-table";
 export function DisbursementChart() {
   const data = useTable("disbursements");
 
+  // Desktop has room for the full year; mobile stays abbreviated to avoid crowding.
+  const [isDesktop, setIsDesktop] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setIsDesktop(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   const rows = data.map((d) => ({
     ...d,
-    label: `\u2019${String(d.year).slice(2)}${d.is_forecast ? "F" : ""}`,
+    label: isDesktop
+      ? `${d.year}${d.is_forecast ? " (F)" : ""}`
+      : `\u2019${String(d.year).slice(2)}${d.is_forecast ? "F" : ""}`,
   }));
 
   return (
     <div className="h-[320px] w-full md:h-[420px]">
       <ResponsiveContainer>
-        <BarChart data={rows} margin={{ top: 22, right: 0, bottom: 0, left: -14 }} barCategoryGap="26%">
+        <BarChart data={rows} margin={{ top: 22, right: 0, bottom: 0, left: 0 }} barCategoryGap="26%">
+          <CartesianGrid
+            horizontal
+            vertical={false}
+            stroke="rgba(255,255,255,0.07)"
+            strokeDasharray="3 8"
+          />
           <XAxis
             dataKey="label"
             interval={0}
@@ -32,14 +51,6 @@ export function DisbursementChart() {
             tick={{ fill: "rgba(255,255,255,0.6)", fontSize: 11 }}
             tickLine={false}
             axisLine={{ stroke: "rgba(255,255,255,0.14)" }}
-          />
-          <YAxis
-            stroke="rgba(255,255,255,0.3)"
-            tick={{ fill: "rgba(255,255,255,0.6)" }}
-            tickLine={false}
-            axisLine={false}
-            tickFormatter={(v: number) => `${v}M`}
-            width={52}
           />
           <Tooltip
             cursor={{ fill: "rgba(255,255,255,0.06)" }}
@@ -83,7 +94,7 @@ export function DisbursementChart() {
               dataKey="amount_m"
               position="top"
               offset={8}
-              formatter={(v) => `${v}M`}
+              formatter={(v) => `$${v}M`}
               style={{
                 fill: "rgba(255,255,255,0.85)",
                 fontSize: 11,
