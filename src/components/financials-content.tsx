@@ -67,7 +67,7 @@ export function FinancialsContent() {
           {snapshot.map((s) => (
             <div
               key={s.key}
-              className="rounded-[1.75rem] bg-white px-6 py-8 shadow-[0_20px_60px_rgba(14,27,44,0.08)]"
+              className="card-shine card-shine--light rounded-[1.75rem] bg-white px-6 py-8 shadow-[0_20px_60px_rgba(14,27,44,0.08)]"
             >
               <div className="display text-[clamp(1.7rem,3.4vw,3rem)] leading-none text-ink">
                 <Counter

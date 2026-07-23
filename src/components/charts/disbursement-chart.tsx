@@ -4,6 +4,7 @@ import {
   Bar,
   BarChart,
   Cell,
+  LabelList,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -14,16 +15,21 @@ import { useTable } from "@/lib/use-table";
 /** Annual loan disbursement (SGD M), live from the DB. Rendered on dark. */
 export function DisbursementChart() {
   const data = useTable("disbursements");
-  const latestYear = data[data.length - 1]?.year;
+
+  const rows = data.map((d) => ({
+    ...d,
+    label: `\u2019${String(d.year).slice(2)}${d.is_forecast ? "F" : ""}`,
+  }));
 
   return (
     <div className="h-[320px] w-full md:h-[420px]">
       <ResponsiveContainer>
-        <BarChart data={data} margin={{ top: 8, right: 0, bottom: 0, left: -14 }} barCategoryGap="26%">
+        <BarChart data={rows} margin={{ top: 22, right: 0, bottom: 0, left: -14 }} barCategoryGap="26%">
           <XAxis
-            dataKey="year"
+            dataKey="label"
+            interval={0}
             stroke="rgba(255,255,255,0.3)"
-            tick={{ fill: "rgba(255,255,255,0.6)" }}
+            tick={{ fill: "rgba(255,255,255,0.6)", fontSize: 11 }}
             tickLine={false}
             axisLine={{ stroke: "rgba(255,255,255,0.14)" }}
           />
@@ -45,7 +51,11 @@ export function DisbursementChart() {
               fontSize: 12,
               color: "#ffffff",
             }}
-            formatter={(value) => [`S$${value}M`, "Disbursed"]}
+            formatter={(value, _name, item) => [
+              `S$${value}M${item?.payload?.is_forecast ? " (Forecast)" : ""}`,
+              "Disbursed",
+            ]}
+            labelFormatter={(_label, payload) => payload?.[0]?.payload?.year ?? _label}
             labelStyle={{ color: "rgba(255,255,255,0.6)" }}
             itemStyle={{ color: "#ffffff" }}
           />
@@ -56,12 +66,32 @@ export function DisbursementChart() {
             animationDuration={1400}
             animationEasing="ease-out"
           >
-            {data.map((d) => (
+            {rows.map((d) => (
               <Cell
                 key={d.year}
-                fill={d.year === latestYear ? "#06dec0" : "rgba(0,172,252,0.55)"}
+                fill={
+                  d.is_forecast
+                    ? "rgba(6,222,192,0.3)"
+                    : "rgba(0,172,252,0.55)"
+                }
+                stroke={d.is_forecast ? "#06dec0" : "none"}
+                strokeWidth={d.is_forecast ? 1.5 : 0}
+                strokeDasharray={d.is_forecast ? "4 3" : undefined}
               />
             ))}
+            <LabelList
+              dataKey="amount_m"
+              position="top"
+              offset={8}
+              formatter={(v) => `${v}M`}
+              style={{
+                fill: "rgba(255,255,255,0.85)",
+                fontSize: 11,
+                fontWeight: 700,
+                fontFamily: "var(--font-sans)",
+                pointerEvents: "none",
+              }}
+            />
           </Bar>
         </BarChart>
       </ResponsiveContainer>

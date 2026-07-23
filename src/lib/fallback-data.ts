@@ -32,16 +32,16 @@ export const fallbackStats: Stat[] = [
 ];
 
 export const fallbackDisbursements: Disbursement[] = [
-  { year: 2016, amount_m: 16 },
-  { year: 2017, amount_m: 28 },
-  { year: 2018, amount_m: 20 },
-  { year: 2019, amount_m: 30 },
-  { year: 2020, amount_m: 25 },
-  { year: 2021, amount_m: 46 },
-  { year: 2022, amount_m: 58 },
-  { year: 2023, amount_m: 62 },
-  { year: 2024, amount_m: 66 },
-  { year: 2025, amount_m: 70 },
+  { year: 2017, amount_m: 16, is_forecast: false },
+  { year: 2018, amount_m: 25, is_forecast: false },
+  { year: 2019, amount_m: 28, is_forecast: false },
+  { year: 2020, amount_m: 20, is_forecast: false },
+  { year: 2021, amount_m: 30, is_forecast: false },
+  { year: 2022, amount_m: 46, is_forecast: false },
+  { year: 2023, amount_m: 58, is_forecast: false },
+  { year: 2024, amount_m: 66, is_forecast: false },
+  { year: 2025, amount_m: 62, is_forecast: false },
+  { year: 2026, amount_m: 70, is_forecast: true },
 ];
 
 export const fallbackMarketSize: MarketSize[] = [

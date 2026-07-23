@@ -46,9 +46,14 @@ export function Proof() {
           y={60}
         >
           <DisbursementChart />
-          <p className="eyebrow mt-6 text-center text-[10px] text-white/55">
-            CF Money&apos;s annual loan disbursement for individual lending, in SGD
-          </p>
+          <div className="mt-6 text-center">
+            <p className="eyebrow text-[10px] text-white/55">
+              CF Money&apos;s annual loan disbursement for individual lending, in SGD
+            </p>
+            <p className="mt-1.5 text-[10.5px] normal-case tracking-normal text-white/35">
+              (F) denotes forecast
+            </p>
+          </div>
         </Reveal>
 
         <Reveal

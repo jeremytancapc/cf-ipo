@@ -12,6 +12,7 @@ export type Stat = {
 export type Disbursement = {
   year: number;
   amount_m: number;
+  is_forecast: boolean;
 };
 
 export type MarketSize = {

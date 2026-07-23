@@ -17,8 +17,13 @@ create table if not exists public.stats (
 
 create table if not exists public.disbursements (
   year int primary key,
-  amount_m numeric not null
+  amount_m numeric not null,
+  is_forecast boolean not null default false
 );
+
+-- Safe to re-run on an existing table that predates the is_forecast column.
+alter table public.disbursements
+  add column if not exists is_forecast boolean not null default false;
 
 create table if not exists public.market_size (
   year int primary key,
@@ -135,10 +140,12 @@ on conflict (key) do update set
   label = excluded.label, value = excluded.value, prefix = excluded.prefix,
   suffix = excluded.suffix, decimals = excluded.decimals, note = excluded.note, ord = excluded.ord;
 
-insert into public.disbursements (year, amount_m) values
-  (2016, 16), (2017, 28), (2018, 20), (2019, 30), (2020, 25),
-  (2021, 46), (2022, 58), (2023, 62), (2024, 66), (2025, 70)
-on conflict (year) do update set amount_m = excluded.amount_m;
+insert into public.disbursements (year, amount_m, is_forecast) values
+  (2017, 16, false), (2018, 25, false), (2019, 28, false), (2020, 20, false),
+  (2021, 30, false), (2022, 46, false), (2023, 58, false), (2024, 66, false),
+  (2025, 62, false), (2026, 70, true)
+on conflict (year) do update set
+  amount_m = excluded.amount_m, is_forecast = excluded.is_forecast;
 
 insert into public.market_size (year, value_b) values
   (2017, 1.2), (2019, 1.55), (2021, 1.95), (2023, 2.35),

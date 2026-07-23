@@ -4,6 +4,7 @@ import { useState } from "react";
 import {
   Bar,
   ComposedChart,
+  LabelList,
   Line,
   ResponsiveContainer,
   Tooltip,
@@ -52,7 +53,7 @@ export function ProjectionsChart() {
 
       <div className="mt-8 h-[320px] w-full md:h-[400px]">
         <ResponsiveContainer>
-          <ComposedChart data={rows} margin={{ top: 8, right: 8, bottom: 0, left: -14 }} barCategoryGap="32%">
+          <ComposedChart data={rows} margin={{ top: 24, right: 8, bottom: 0, left: -14 }} barCategoryGap="32%">
             <XAxis
               dataKey="label"
               stroke="#d9e4ed"
@@ -99,7 +100,21 @@ export function ProjectionsChart() {
               dot={{ r: 3.5, fill: "#00acfc", strokeWidth: 0 }}
               isAnimationActive
               animationDuration={1100}
-            />
+            >
+              <LabelList
+                dataKey={active}
+                position="top"
+                offset={12}
+                formatter={(v) => `${v}M`}
+                style={{
+                  fill: "#2d5384",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  fontFamily: "var(--font-sans)",
+                  pointerEvents: "none",
+                }}
+              />
+            </Line>
           </ComposedChart>
         </ResponsiveContainer>
       </div>
