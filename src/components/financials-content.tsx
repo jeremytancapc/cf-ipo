@@ -47,10 +47,12 @@ export function FinancialsContent() {
           <h1 className="display mx-auto mt-7 max-w-[16ch] text-[length:var(--text-hero)] text-white">
             The numbers, <span className="accent-word">in full.</span>
           </h1>
-          <p className="mx-auto mt-8 max-w-[52ch] leading-[1.75] text-white/80">
-            Every figure on this page is served live from our data room: base-case
-            projections, peer benchmarks, sensitivity scenarios and capital
-            allocation. Confidential; for Accredited Investors only.
+          <p className="mx-auto mt-8 max-w-[46ch] leading-[1.75] text-white/80">
+            Every figure on this page is served live from our data room &mdash; base-case
+            projections, peer benchmarks, sensitivity scenarios and capital allocation.
+          </p>
+          <p className="eyebrow mx-auto mt-4 max-w-none whitespace-nowrap text-[10px] text-teal/70">
+            Confidential · For Accredited Investors only
           </p>
         </Reveal>
       </section>
